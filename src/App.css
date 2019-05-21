@@ -1,33 +1,53 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Sans Forgetica Regular';
+  src: local('Sans Forgetica Regular'), url(./assets/SansForgetica-Regular.otf) format('opentype');
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  display: grid;
+  grid-template-rows: .5fr .5fr;
+  grid-template-columns: .5fr .5fr .5fr ;
+  justify-content: start;
+  background-color: black;
+  width: 15%;
+  height: 15%;
+  overflow: hidden;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nom {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 5vmin);
+  color: black;
+  font-family: 'Sans Forgetica Regular', "serif";
+}
+
+.core{
   color: white;
-}
 
-.App-link {
-  color: #61dafb;
 }
+.inverse{
+  background-color: white;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+p{
+  margin: 0;
+  align-self: start;
+}
+.a{
+  grid-column-start: 1;
+  grid-row-start: 1;
+
+}
+.l{
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+.e{
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+.x{
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: span 2;
+  justify-content: flex-end;
 }
