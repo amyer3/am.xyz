@@ -53,9 +53,9 @@ class App extends React.Component {
                             <input type="checkbox" onChange={this.changeMode}/>
                             <span className="slider round"> </span>
                         </label>
-                        <label className="langSwitch">
+                        <label className="langSwitch ">
                             <input type="checkbox" onChange={this.changeLang}/>
-                            <span className="langSlider round"> </span>
+                            <span className="langSlider round "> </span>
                         </label>
                     </div>
 

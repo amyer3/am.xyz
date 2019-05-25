@@ -1,15 +1,16 @@
 
 .fa {
     padding: 1.04vw;
-    font-size: 1.74vw;
-    width: 1.74vw;
-    height: 1.74vw;
+    font-size: 2.74vw;
+    width: 2.74vw;
+    height: 2.74vw;
+    margin-left: 2%;
+    margin-right: 2%;
     text-align: center;
     text-decoration: none;
     border-radius: 100%;
     animation-play-state: paused;
     background-color: transparent;
-    margin: 0;
 
 }
 .fa-linkedin:hover {

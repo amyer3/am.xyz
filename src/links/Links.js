@@ -15,7 +15,7 @@ class Links extends React.Component {
          className={this.props.mode === "day" ? "fa fa-github core-border" : "fa fa-github inverse-border"}> </a>
       <a href="mailto:me@am.xyz?"
          className={this.props.mode === "day" ? "fa fa-envelope core-border" : "fa fa-envelope inverse-border"}> </a>
-      <a href="http://www.alexmye.rs/about"
+      <a href="http://www.am.xyz/about"
          className={this.props.mode === "day" ? "fa fa-user core-border" : "fa fa-user inverse-border"}> </a>
     </span>
             </div>

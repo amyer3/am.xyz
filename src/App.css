@@ -3,6 +3,7 @@ body{
   padding: 0;
   min-height: 100%;
   min-width: 100%;
+  transition: .5s;
 }
 .pageMax{
   min-height: 100%;
@@ -20,10 +21,12 @@ body{
 .core{
   background-color: black;
   color: white;
+  transition: .5s;
 }
 .inverse {
   background-color: white;
   color: black;
+  transition: .5s;
 }
 .inline{ display: inline-block;}
 .header{
@@ -44,6 +47,6 @@ body{
 }
 .toggle{
   grid-area: toggle;
-  text-align: center;
+  justify-self: center;
   margin-top: 15%;
 }
