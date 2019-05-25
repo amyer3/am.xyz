@@ -3,27 +3,26 @@ body{
   padding: 0;
   min-height: 100%;
   min-width: 100%;
+  transition: .5s;
+  overflow: hidden;
 }
 .pageMax{
   min-height: 100%;
   min-width: 100%;
   margin:0;
   padding:0;
-}
-.app{
-  background-color: white;
-}
-.appInverse{
-  background-color: black;
+  background-color: transparent;
 }
 /* Global color settings */
 .core{
   background-color: black;
   color: white;
+  transition: .5s;
 }
 .inverse {
   background-color: white;
   color: black;
+  transition: .5s;
 }
 .inline{ display: inline-block;}
 .header{
@@ -40,10 +39,10 @@ body{
 .link{
   grid-area: link;
   text-align: center;
-  margin-top: 10%;
+  align-self: center;
 }
 .toggle{
   grid-area: toggle;
-  text-align: center;
-  margin-top: 15%;
+  justify-self: center;
+  align-self: center;
 }
