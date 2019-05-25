@@ -1,53 +1,49 @@
-@font-face {
-  font-family: 'Sans Forgetica Regular';
-  src: local('Sans Forgetica Regular'), url(./assets/SansForgetica-Regular.otf) format('opentype');
-}
-.container{
-  display: grid;
-  grid-template-rows: .5fr .5fr;
-  grid-template-columns: .5fr .5fr .5fr ;
-  justify-content: start;
-  background-color: black;
-  width: 15%;
-  height: 15%;
-  overflow: hidden;
-}
-.nom {
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 5vmin);
-  color: black;
-  font-family: 'Sans Forgetica Regular', "serif";
-}
-
-.core{
-  color: white;
-
-}
-.inverse{
-  background-color: white;
-
-}
-p{
+body{
   margin: 0;
-  align-self: start;
+  padding: 0;
+  min-height: 100%;
+  min-width: 100%;
 }
-.a{
-  grid-column-start: 1;
-  grid-row-start: 1;
+.pageMax{
+  min-height: 100%;
+  min-width: 100%;
+  margin:0;
+  padding:0;
+}
+.app{
+  background-color: white;
+}
+.appInverse{
+  background-color: black;
+}
+/* Global color settings */
+.core{
+  background-color: black;
+  color: white;
+}
+.inverse {
+  background-color: white;
+  color: black;
+}
+.inline{ display: inline-block;}
+.header{
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-areas: "logo link toggle";
 
 }
-.l{
-  grid-column-start: 2;
-  grid-row-start: 1;
+.logo{
+  margin-left: 5%;
+  margin-top: 5%;
+  grid-area: logo;
 }
-.e{
-  grid-column-start: 2;
-  grid-row-start: 2;
+.link{
+  grid-area: link;
+  text-align: center;
+  margin-top: 10%;
 }
-.x{
-  grid-column-start: 3;
-  grid-row-start: 1;
-  grid-row-end: span 2;
-  justify-content: flex-end;
+.toggle{
+  grid-area: toggle;
+  text-align: center;
+  margin-top: 15%;
 }
