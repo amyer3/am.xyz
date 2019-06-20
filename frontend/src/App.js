@@ -30,7 +30,6 @@ const fr_travel = "Mes Voyages"
 const en_work = "What I've Done"
 const fr_work="Mes Travailles"
 
-
 function importAll(r) {
     return r.keys().map(r);
 }
