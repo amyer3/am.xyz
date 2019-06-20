@@ -1,0 +1,87 @@
+{
+  "work": {
+    "en": [
+      {
+        "title": "CapEx",
+        "detail": "Strategy",
+        "type": "excel"
+      },
+      {
+        "title": "KPIs",
+        "detail": "Strategy",
+        "type": "strategy"
+      },
+      {
+        "title": "Data Analysis",
+        "detail": "Strategy",
+        "type": "data"
+      },
+      {
+        "title": "Reporting",
+        "detail": "Strategy",
+        "type": "strategy"
+      },
+      {
+        "title": "Apps",
+        "detail": "Strategy",
+        "type": "code"
+      },
+      {
+        "title": "Financials",
+        "detail": "Strategy",
+        "type": "excel"
+      },
+      {
+        "title": "Pitch Deck",
+        "detail": "Strategy",
+        "type": "presentation"
+      },
+      {
+        "title": "WebDev",
+        "detail": "Strategy",
+        "type": "code"
+      }
+    ],
+    "fr": [
+      {
+        "title": "CapEx",
+        "detail": "Strategy",
+        "type": "excel"
+      },
+      {
+        "title": "KPIs",
+        "detail": "Strategy",
+        "type": "strategy"
+      },
+      {
+        "title": "Data Analysis",
+        "detail": "Strategy",
+        "type": "data"
+      },
+      {
+        "title": "Reporting",
+        "detail": "Strategy",
+        "type": "strategy"
+      },
+      {
+        "title": "Apps",
+        "detail": "Strategy",
+        "type": "code"
+      },
+      {
+        "title": "Financials",
+        "detail": "Strategy",
+        "type": "excel"
+      },
+      {
+        "title": "Pitch Deck",
+        "detail": "Strategy",
+        "type": "presentation"
+      },
+      {
+        "title": "WebDev",
+        "detail": "Strategy",
+        "type": "code"
+    ]
+  }
+}
