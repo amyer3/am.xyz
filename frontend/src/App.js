@@ -128,7 +128,7 @@ class App extends React.Component {
                     <div className='inline logo'>
                         <p className='minor'>{this.state.lang === 'en' ? en_prename : fr_premane}</p>
                         <p className='logoText'>
-                            Alexander
+                            Alex
                         </p>
 
                     </div>
