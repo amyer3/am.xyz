@@ -8,7 +8,6 @@ import roles from './assets/roles.json';
 import work from './assets/work.json'
 import gb from './assets/icons/gb-flag.svg'
 import fr from './assets/icons/fr-flag.svg'
-import 'mapbox-gl/dist/mapbox-gl.css';
 
 import code from './assets/workIcons/icons8-code-file-50.png'
 import data_icon from './assets/workIcons/icons8-data-configuration-50.png'
@@ -129,7 +128,7 @@ class App extends React.Component {
                     <div className='inline logo'>
                         <p className='minor'>{this.state.lang === 'en' ? en_prename : fr_premane}</p>
                         <p className='logoText'>
-                            Alex
+                            Aléx
                         </p>
 
                     </div>
