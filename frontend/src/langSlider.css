@@ -1,0 +1,68 @@
+.langSwitch {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 34px;
+    outline: 0;
+    margin-top: 20%;
+}
+input{
+    outline:0;
+}
+
+.langSwitch input {
+    outline: 0;
+}
+
+.langSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .5s;
+    transition: .5s;
+    outline: 0;
+}
+/* this is the in-range button*/
+.langSlider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    outline: 0;
+    background: url(./assets/icons/gb-flag.svg);
+}
+/* range after checked*/
+input:checked + .langSlider {
+    background-color: white;
+    outline: 0;
+}
+
+input:focus + .langSlider {
+    box-shadow: 0 0 1px #2196F3;
+    outline: 0;
+}
+/* inrange button after it's been checked*/
+input:checked + .langSlider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    outline: 0;
+    background: url(./assets/icons/fr-flag.svg);
+}
+
+/* Rounded sliders */
+.langSlider.round {
+    border-radius: 34px;
+}
+
+.langSlider.round:before {
+    border-radius: 50%;
+}

@@ -1,0 +1,279 @@
+@font-face {
+  font-family: "PermanentMarker";
+  src: local("PermenantMarker"), url(./assets/fonts/PermenantMarker.woff2) format('woff2');
+}
+@font-face {
+  font-family: "Alegreya Sans SC Light";
+  src: local('Alegreya Sans SC Light'), local('AlegreyaSansSC-Light'), url(https://fonts.gstatic.com/s/alegreyasanssc/v8/mtGm4-RGJqfMvt7P8FUr0Q1j-Hf1DuJH4iNhMKB8O-8.woff2) format('woff2');;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  min-width: 100%;
+  transition: .5s;
+  overflow: hidden;
+}
+.pageMax{
+  min-height: 100%;
+  min-width: 100%;
+  margin:0;
+  padding:0;
+  background-color: transparent;
+}
+a{text-decoration: none}
+/* Global color settings */
+.core{
+  background-color: black;
+  color: white;
+  transition: .5s;
+}
+.inverse {
+  background-color: white;
+  color: black;
+  transition: .5s;
+}
+.inline{ display: inline-block;}
+.header{
+  float: left;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 6vh 30vh 27vh 2vh 35vh;
+  grid-template-areas:
+          "toggle toggle"
+          "logo logo"
+          "bio bio"
+          "accent accent"
+          "contact contact";
+  width: 37%;
+  background-color: #333333;
+}
+.logo{
+  grid-area: logo;
+  height: 100%;
+  align-self: center;
+
+}
+.logoText{
+  font-size: 12vh;
+  line-height: 10vh;
+  text-align: left;
+  margin-left: 5%;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Alegreya Sans SC Light";
+
+}
+.minor{
+  font-size: 4vh;
+  color: white;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  font-family: 'PermanentMarker', cursive;
+
+}
+.bio{
+  grid-area: bio;
+  align-self: center;
+  height: 100%;
+
+}
+.bioText{
+  font-size: 12vh;
+  line-height: 10vh;
+  text-align: left;
+  margin-left: 5%;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.bio .bioText {
+  position: relative;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  font-family: "Alegreya Sans SC Light";
+}
+
+.accentBox{
+  grid-area: accent;
+  height: 2vh;
+  background-color: white;
+  width: 10vw;
+  margin-left: 5%;
+}
+.toggle{
+  grid-area: toggle;
+  align-items: center;
+  justify-self: center;
+}
+
+.contact{
+  align-content: center;
+  grid-area: contact;
+  background-color: #525465;
+  width: 22vw;
+  height: 8vh;
+  font-size: 4vh;
+  color: #fff;
+  line-height: 8vh;
+  border-radius: 50px;
+  font-family: 'PermanentMarker', cursive;
+  justify-self: center;
+  align-self: center;
+  transition: .5s;
+}
+.contact:hover{
+  background-color: #697c91;
+}
+.contact .cl{
+  width: 70%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+.contact .cr{
+  width: 30%;
+  float: right;
+  text-align: center;
+}
+.contact img{
+  max-height: 40px;
+  fill: white;
+  vertical-align: middle;
+}
+.boxes{
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 33.35vh 33.3vh 33.3vh;
+  display: grid;
+  grid-template-areas:
+      "travel travel"
+      "work linkedin"
+      "work github";
+  justify-items: stretch;
+  float: right;
+  width: 63%;
+  height: 100%;
+}
+@media (max-width: 800px) {
+  .boxes{
+    grid-template-columns: 100%;
+    grid-template-rows: 25vh 25vh 25vh;
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+            "linkedin linkedin "
+            "github github"
+            "work work";
+    justify-content: stretch;
+  }
+  .work{
+    display: none;
+  }
+  .contact img{
+    width: 2rem;
+  }
+
+}
+.feature {
+  width: 100%;
+  height: 100%;
+  font-size: 5vh;
+  color: #e8e8e8;
+  line-height: 100%;
+  font-family: "Alegreya Sans SC Light";
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.work{
+  grid-area: work;
+  transition: all 1s ease;
+  line-height: 33.32vh;
+  overflow: scroll;
+  font-family: "Alegreya Sans SC Light";
+}
+
+.list{
+  overflow: scroll;
+}
+.upperWork{
+  color: #e4e4e4;
+  font-size: 5vh;
+  text-align: center;
+  background-color: #869da4;
+  /* 8AA2A9 */
+}
+.upperWork img{
+  text-align: center;
+  max-height: 50px;
+  vertical-align: bottom;
+}
+.upperWork p {
+  margin: 0;
+  vertical-align: bottom;
+}
+.workListContainer{
+  position: relative;
+}
+.workListItem{
+  color: black;
+  background-color: #e7e7e7;
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.25rem;
+  text-align: left;
+  padding-left: 5%;
+  border-top: .02em solid grey;
+  border-bottom: .02em solid grey;
+}
+.workListItem img{
+  line-height: 4rem;
+  vertical-align: middle;
+  max-height: 30px;
+  margin-right: 5%;
+}
+.linkedin{
+  text-align: center;
+  grid-area: linkedin;
+  background: #0077b5;
+  overflow: hidden;
+  line-height: 33.3vh;
+}
+.linkedin img{
+  height: 40vh;
+  vertical-align: middle;
+  margin-left: -18vw;
+}
+.github{
+  text-align: center;
+  grid-area: github;
+  background: #6e5494;
+  overflow: hidden;
+}
+.github img{
+  vertical-align: middle;
+  width: 33vh;
+  margin-right: -15vw;
+}
+.travel{
+  grid-area: travel;
+  text-align: center;
+  line-height: 33.35vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+mark{
+  background: center 50% url("./assets/brush-stroke-banner-7.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: visible;
+  color: white;
+  border-radius: 3px;
+  width: 100rem;
+  padding: 6%;
+}

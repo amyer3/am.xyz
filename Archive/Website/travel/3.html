@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    body {
+        background-color: white;
+    }
+
+    .land {
+        fill: rgb(0, 183, 0);
+        stroke-opacity: 1;
+    }
+
+    .labels {
+        font: .75rem sans-serif;
+        fill: black;
+    }
+
+    .noclicks {
+        pointer-events: none;
+    }
+
+    .point {
+        fill: black;
+    }
+</style>
+
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v0.min.js"></script>
+<script>
+
+
+    var width = window.innerWidth,
+        height = window.innerHeight;
+
+    var projection = d3.geoNaturalEarth1()
+        .scale(height / 3)
+        .translate([width / 2, height / 2]);
+
+    var path = d3.geoPath().projection(projection).pointRadius(1.5);
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+
+    queue()
+        .defer(d3.json, "https://gist.githubusercontent.com/mbostock/4090846/raw/d534aba169207548a8a3d670c9c2cc719ff05c47/world-110m.json")
+        .defer(d3.json, "places.json")
+        .await(ready);
+
+    function ready(error, world, places) {
+        if (error) {
+            throw error
+        }
+
+        //sets land masses
+        svg.append("path")
+            .datum(topojson.object(world, world.objects.land))
+            .attr("class", "land")
+            .attr("d", path);
+
+        //sets points
+        svg.append("g").attr("class", "points")
+            .selectAll("text").data(places.features)
+            .enter().append("path")
+            .attr("class", "point")
+            .attr("d", path);
+
+        //format point text
+        svg.append("g").attr("class", "labels")
+            .selectAll("text").data(places.features)
+            .enter().append("text")                 //appends text
+            .attr("class", "label")                 // sets class to label
+            .text(function (d) {
+                return d.properties.name
+            });
+
+        position_labels();
+    }
+
+
+    function position_labels() {
+        var centerPos = projection.invert([width / 2, height / 2]);
+
+        var arc = d3.arc();
+
+        svg.selectAll(".label")
+            .attr("text-anchor", function (d) {
+                var x = projection(d.geometry.coordinates)[0];
+                return x < width / 2 - 20 ? "end" :
+                    x < width / 2 + 20 ? "middle" :
+                        "start"
+            })
+            .attr("transform", function (d) {
+                var loc = projection(d.geometry.coordinates),
+                    x = loc[0],
+                    y = loc[1];
+                /*
+                 number after ? moves labels left on western hemi,
+                 after : moves labels right on eastern hemi
+                 */
+                var offset = x < width / 2 ? -5 : -5;
+                // y-# increases height, y+# lowers it
+                return "translate(" + (x + offset) + "," + (y) + ")"
+            })
+            .style("display", function (d) {
+                var d = arc.distance({source: d.geometry.coordinates, target: centerPos});
+                return (d > 1.57) ? 'none' : 'inline';
+            })
+    }
+
+
+</script>

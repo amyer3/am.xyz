@@ -1,0 +1,174 @@
+
+[
+    {
+      "name": "SF",
+      "airport": "SFO",
+      "coordinates": [
+        -122.4599,
+        37.7400
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Montréal",
+      "airport": "MTL",
+      "coordinates": [
+        -73.5673,
+        45.5017
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Chicago",
+      "airport": "ORD",
+      "coordinates": [
+        -87.6298,
+        41.8781
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Melbourne",
+      "airport": "MEL",
+      "coordinates": [
+        144.9750,
+        -37.8200
+      ],
+      "YMarkerOffset": 25
+    },
+    {
+      "name": "LA",
+      "airport": "LAX",
+      "coordinates": [
+        -118.1799,
+        33.9899
+      ],
+      "YMarkerOffset": 15
+    },
+    {
+      "name": "New York",
+      "airport": "JFK",
+      "coordinates": [
+        -73.98001,
+        40.7499
+      ],
+      "YMarkerOffset": 15
+    },
+    {
+      "name": "Sydney",
+      "airport": "SYD",
+      "coordinates": [
+        151.1851,
+        -33.920010
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Hong Kong",
+      "airport": "HKG",
+      "coordinates": [
+        114.18500,
+        22.3049
+      ],
+      "YMarkerOffset": 15
+    },
+    {
+      "name": "Macau",
+      "airport": "MFM",
+      "coordinates": [
+        113.5439,
+        22.1987
+      ],
+      "YMarkerOffset": 15
+    },
+    {
+      "name": "Seattle",
+      "airport": "SEA",
+      "coordinates": [
+        -122.3351,
+        47.6080
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Cancun",
+      "airport": "CUN",
+      "coordinates": [
+        -86.8515,
+        21.1619
+      ],
+      "YMarkerOffset": -10
+    },
+    {
+      "name": "London",
+      "airport": "LHR",
+      "coordinates": [
+        0.1278,
+        51.5074
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Paris",
+      "airport": "CDG",
+      "coordinates": [
+        2.3522,
+        48.8566
+      ],
+      "YMarkerOffset": 15
+    },
+    {
+      "name": "Las Vegas",
+      "airport": "LAS",
+      "coordinates": [
+        -115.1398,
+        36.1699
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Strasbourg",
+      "airport": "SXB",
+      "coordinates": [
+        7.7521,
+        48.5734
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Ensenada",
+      "airport": "ESE",
+      "coordinates": [
+        -116.5964,
+        31.8667
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Catalina",
+      "airport": "CIB",
+      "coordinates": [
+        -118.4163,
+        33.3879
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Ketchikan",
+      "airport": "KTN",
+      "coordinates": [
+        -131.6461,
+        55.3422
+      ],
+      "YMarkerOffset": -15
+    },
+    {
+      "name": "Sitka",
+      "airport": "SIT",
+      "coordinates": [
+        -135.3300,
+        57.0531
+      ],
+      "YMarkerOffset": -15
+    }
+  ]

@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Library 3am Soft';
+    src: local('Sans Forgetica Regular'), url(../assets/fonts/Library3amSoft.otf) format('opentype');
+}
+
+.enc{
+    height: 100%;
+    width: 75%;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.wordStyle{
+    font-family: 'Library 3am Soft', SansSerif;
+    font-size: 13vh;
+    color: red;
+    text-decoration: none;
+}
+
+.wordStyle:hover{
+    background-color: black;
+}

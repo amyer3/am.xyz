@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    body{
+        background-color: black;
+    }
+
+    .land {
+        fill: rgb(0, 183, 0);
+        stroke-opacity: 1;
+    }
+
+    .graticule {
+        fill: none;
+        stroke: black;
+        stroke-width:.5;
+    }
+
+    .labels {
+        font: .75rem sans-serif;
+        fill: #000000;
+    }
+
+    .noclicks {
+        pointer-events:none;
+    }
+
+    .point{
+    }
+</style>
+
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+<script>
+
+    d3.select(window)
+        .on("mousemove", mousemove)
+        .on("mouseup", mouseup);
+
+    var width = window.innerWidth,
+        height = window.innerHeight*.95;
+
+    var projection = d3.geoNaturalEarth1()
+        .scale(height / 2 )
+        .translate([width / 2, height / 2])
+        .clipAngle(90);
+
+
+    var path = d3.geoPath().projection(projection).pointRadius(1.5);
+
+    var graticule = d3.geoGraticule();
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .on("mousedown", mousedown);
+
+    queue()
+        .defer(d3.json, "https://gist.githubusercontent.com/mbostock/4090846/raw/d534aba169207548a8a3d670c9c2cc719ff05c47/world-110m.json")
+        .defer(d3.json, "places.json")
+        .await(ready);
+
+    function ready(error, world, places) {
+        if(error){ throw error }
+
+        //fills oceans
+        var ocean_fill = svg.append("defs").append("radialGradient")
+            .attr("id", "ocean_fill")
+            .attr("cx", "75%")
+            .attr("cy", "25%");
+        ocean_fill.append("stop").attr("offset", "100%").attr("stop-color", "#50b2ff");
+
+            //sets oceans
+        svg.append("circle")
+            .attr("cx", width / 2).attr("cy", height / 2)
+            .attr("r", projection.scale())
+            .attr("class", "noclicks")
+            .style("fill", "url(#ocean_fill)");
+
+            //sets land masses
+        svg.append("path")
+            .datum(topojson.object(world, world.objects.land))
+            .attr("class", "land")
+            .attr("d", path);
+
+            //sets points
+        svg.append("g").attr("class","points")
+            .selectAll("text").data(places.features)
+            .enter().append("path")
+            .attr("class", "point")
+            .attr("d", path);
+
+            //format point text
+        svg.append("g").attr("class","labels")
+            .selectAll("text").data(places.features)
+            .enter().append("text")                 //appends text
+            .attr("class", "label")                 // sets class to label
+            .text(function(d) { return d.properties.name })
+
+        position_labels();
+    }
+
+
+    function position_labels() {
+        var centerPos = projection.invert([width/2,height/2]);
+
+        var arc = d3.geo.greatArc();
+
+        svg.selectAll(".label")
+            .attr("text-anchor",function(d) {
+                var x = projection(d.geometry.coordinates)[0];
+                return x < width/2-20 ? "end" :
+                    x < width/2+20 ? "middle" :
+                        "start"
+            })
+            .attr("transform", function(d) {
+                var loc = projection(d.geometry.coordinates),
+                    x = loc[0],
+                    y = loc[1];
+                var offset = x < width/2 ? -5 : 5;
+                return "translate(" + (x+offset) + "," + (y-2) + ")"
+            })
+            .style("display",function(d) {
+                var d = arc.distance({source: d.geometry.coordinates, target: centerPos});
+                return (d > 1.57) ? 'none' : 'inline';
+            })
+    }
+
+    var m0, o0;
+    function mousedown() {
+        m0 = [d3.event.pageX, d3.event.pageY];
+        o0 = projection.rotate();
+        d3.event.preventDefault();
+    }
+    function mousemove() {
+        if (m0) {
+            var m1 = [d3.event.pageX, d3.event.pageY]
+                , o1 = [o0[0] + (m1[0] - m0[0]) / 6, o0[1] + (m0[1] - m1[1]) / 6];
+            o1[1] = o1[1] > 30  ? 30  :
+                o1[1] < -30 ? -30 :
+                    o1[1];
+            projection.rotate(o1);
+            refresh();
+        }
+    }
+    function mouseup() {
+        if (m0) {
+            mousemove();
+            m0 = null;
+        }
+    }
+
+    function refresh() {
+        svg.selectAll(".land").attr("d", path);
+        svg.selectAll(".countries path").attr("d", path);
+        svg.selectAll(".graticule").attr("d", path);
+        svg.selectAll(".point").attr("d", path);
+        position_labels();
+    }
+
+</script>
