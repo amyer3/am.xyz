@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import styled from 'styled-components'
-import cut from './cut.svg'
+import cut from './assets/cut.svg'
 
 /*
 Use this to pull all photos from a folder, and make an array from them
@@ -9,17 +9,32 @@ function importAll(r) {
     return r.keys().map(r);
 }
 const images = importAll(require.context('./assets/photos/', false, /\.(png|jpe?g|svg)$/));
+
+    @media only screen and (${widthRule}) {
+        background-color: red;
+    }
+        @media only screen and (${widthRule}) {
+        grid-template-columns: 8% 38% 8% 38% 8%
+        grid-template-rows 50% 50%
+        grid-template-areas: 
+        "ls li cs gh rs"
+        "ls em cs wa rs";
+
+    }
 */
+const widthRule = 'max-width: 500px';
 
 const BackgroundDiv = styled.div`
     background-color: #0D1836;
     width: 100vw;
     height: 100vh;
+
 `
 const CutImage = styled.img`
     height: 100vh;
     width: auto;
     float: right;
+
 `
 const LangToggle = styled.div`
     color: white;
@@ -87,27 +102,20 @@ const LinkButton = styled.a`
 `
 const ButtonGrid = styled.div`
     display: grid;
+    margin: 0;
+    padding: 0;
     grid-template-columns: 30% 5% 30% 5% 30%;
     grid-template-rows: 50% 50%;
     grid-template-areas:
     "li s1 gh s2 ct"
     "map map map map map";
     grid-area: buttons;
-    margin: 0;
-    padding: 0;
 `
 
-export function App() {
-    const [en, changeLang] = useState(1)
-    /*
-    changeLang = () => {
-        this.state.lang === 'en' || "" ? this.setState({lang: "fr"}) : this.setState({lang: "en"});
-    };
-    toggleMap = () => {
-        console.log(this.state.mapVisible)
-        this.state.mapVisible === 0 ? this.setState({mapVisible: 1}) : this.setState({mapVisible: 0})
-    }
-    */
+export default function App() {
+    const initState = window.navigator.language.includes('en') ? 1 : 0
+    const [en, changeLang] = useState(initState)
+
     var handleChange = () => changeLang(!en) && console.log(en)
 
     function isMobileDevice() {
@@ -131,12 +139,11 @@ export function App() {
                 <ButtonGrid>
                     <LinkButton href={'https://linkedin.com/'} area={'li'}>Linkedin</LinkButton>
                     <LinkButton href={'https://github.com/amyer3'} area={'gh'}>Github</LinkButton>
-                    <LinkButton href={'mailto:me@am.xyz?'} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
+                    <LinkButton href={`mailto:${process.env.REACT_APP_EMAIL}`} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
+                    <LinkButton href={process.env.REACT_APP_PHONE}></LinkButton>
                 </ButtonGrid>
             </Grid>
             <CutImage src={cut} />
         </BackgroundDiv>
     )
 }
-
-export default App;
