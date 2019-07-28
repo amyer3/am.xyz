@@ -22,7 +22,7 @@ const CutImage = styled.img`
     width: auto;
     float: right;
 `
-const LangToggle = styled.p`
+const LangToggle = styled.div`
     color: white;
     font-family: 'ABeeZee', Serif;
     padding: 0;
@@ -30,6 +30,8 @@ const LangToggle = styled.p`
     text-align: left;
     grid-area: toggle;
     cursor: pointer;
+    display: flex;
+    align-self: center;
 `
 
 const LangP = styled.p`
@@ -56,7 +58,7 @@ const InlinePara = styled.p`
 const Grid = styled.div`
     display: inline-grid;
     grid-template-columns: 10vw 40vw ;
-    grid-template-rows: 10vh 15vh 55vh 20vh;
+    grid-template-rows: 10vh 10vh 55vh 25vh;
     grid-template-areas: 
     "cs toggle"
     "cs space"
@@ -74,9 +76,11 @@ const LinkButton = styled.button`
     font-size: 32px;
     font-family: 'ABeeZee', Serif;
     grid-area: ${props => props.area}
+    width: 100%;
 `
 const ButtonGrid = styled.div`
-    grid-template-columns: 30% 5% 30% 5% 30%
+    display: grid;
+    grid-template-columns: 30% 5% 30% 5% 30%;
     grid-template-rows: 50% 50%;
     grid-template-areas:
     "li s1 gh s2 ct"
@@ -103,7 +107,9 @@ export function App() {
         <BackgroundDiv>
             <Grid>
                 <LangToggle onClick={handleChange}>
-                    <LangP size={en ? 14 : 12}>EN</LangP> | <LangP size={en ? 12 : 14}>FR</LangP>
+                    <LangP size={en ? 14 : 12}>EN</LangP> 
+                    <LangP size={14}>|</LangP>
+                    <LangP size={en ? 12 : 14}>FR</LangP>
                 </LangToggle>
                 <Words>
                     <InlinePara><u>Alex</u></InlinePara>
@@ -114,7 +120,7 @@ export function App() {
                 <ButtonGrid>
                     <LinkButton a={'linkedin.com/in/alexjmyers'} area={'li'}>Linkedin</LinkButton>
                     <LinkButton a={'linkedin.com/in/alexjmyers'} area={'gh'}>Github</LinkButton>
-                    <LinkButton a={'mailto:me@am.xyz?'} area={'ct'}>Contact</LinkButton>
+                    <LinkButton a={'mailto:me@am.xyz?'} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
                 </ButtonGrid>
             </Grid>
             <CutImage src={cut} />
