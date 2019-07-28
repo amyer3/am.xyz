@@ -34,10 +34,13 @@ const LangToggle = styled.div`
     align-self: center;
 `
 
-const LangP = styled.p`
+const LangP = styled.div`
     font-size: ${props => props.size}pt;
     padding: 0;
     margin: 0;
+    transition: font-size 0.5s;
+    width: 1.5vw
+    text-align: center;
 `
 
 const Words = styled.div`
@@ -65,18 +68,23 @@ const Grid = styled.div`
     "cs words"
     "cs buttons"
 `
-const LinkButton = styled.button`
+const LinkButton = styled.a`
     border: 3px solid white;
-    border-radius: 5px;
+    border-radius: 10px;
     display: inline-block;
     color: white;
     background-color: transparent;
     max-width: 200px;
     max-height: 50px;
-    font-size: 32px;
+    font-size: 26pt;
     font-family: 'ABeeZee', Serif;
     grid-area: ${props => props.area}
     width: 100%;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    vertical-align: middle;
+    line-height: 50px;
 `
 const ButtonGrid = styled.div`
     display: grid;
@@ -115,12 +123,12 @@ export function App() {
                     <InlinePara><u>Alex</u></InlinePara>
                     <InlinePara>{en ? "Engineering" : "Ingénierie"}.</InlinePara>
                     <InlinePara>{en ? "Strategy" : "Stratégie"}.</InlinePara>
-                    <InlinePara>{en ? "Mostly edible baking" : ""}.</InlinePara>
+                    <InlinePara>{en ? "Mostly edible baking" : "Presque comestible pain"}.</InlinePara>
                 </Words>
                 <ButtonGrid>
-                    <LinkButton a={'linkedin.com/in/alexjmyers'} area={'li'}>Linkedin</LinkButton>
-                    <LinkButton a={'linkedin.com/in/alexjmyers'} area={'gh'}>Github</LinkButton>
-                    <LinkButton a={'mailto:me@am.xyz?'} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
+                    <LinkButton href={'linkedin.com/in/alexjmyers'} area={'li'}>Linkedin</LinkButton>
+                    <LinkButton href={'linkedin.com/in/alexjmyers'} area={'gh'}>Github</LinkButton>
+                    <LinkButton href={'mailto:me@am.xyz?'} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
                 </ButtonGrid>
             </Grid>
             <CutImage src={cut} />
