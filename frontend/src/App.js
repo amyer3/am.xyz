@@ -125,8 +125,8 @@ export function App() {
                     <InlinePara>{en ? "Mostly edible baking" : "Presque comestible pain"}.</InlinePara>
                 </Words>
                 <ButtonGrid>
-                    <LinkButton href={'linkedin.com/in/alexjmyers'} area={'li'}>Linkedin</LinkButton>
-                    <LinkButton href={'linkedin.com/in/alexjmyers'} area={'gh'}>Github</LinkButton>
+                    <LinkButton href={'linkedin.com/'} area={'li'}>Linkedin</LinkButton>
+                    <LinkButton href={'https://github.com/amyer3'} area={'gh'}>Github</LinkButton>
                     <LinkButton href={'mailto:me@am.xyz?'} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
                 </ButtonGrid>
             </Grid>
