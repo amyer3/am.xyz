@@ -53,7 +53,7 @@ const LangP = styled.div`
     padding: 0;
     margin: 0;
     transition: font-size 0.5s;
-    width: 1.5vw
+    width: 1.5vw;
     text-align: center;
 `
 
@@ -80,7 +80,7 @@ const Grid = styled.div`
     "cs toggle"
     "cs space"
     "cs words"
-    "cs buttons"
+    "cs buttons";
 `
 const LinkButton = styled.a`
     border: 3px solid white;
@@ -92,7 +92,7 @@ const LinkButton = styled.a`
     max-height: 50px;
     font-size: 26pt;
     font-family: 'ABeeZee', Serif;
-    grid-area: ${props => props.area}
+    grid-area: ${props => props.area};
     width: 100%;
     text-align: center;
     text-decoration: none;
