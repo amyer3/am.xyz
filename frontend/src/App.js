@@ -1,102 +1,106 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import './langSlider.css'
-import paperplane from './assets/icons/new.svg'
-import gh from './assets/icons/icons8-github.svg'
-import li from './assets/icons/icons8-linkedin.svg'
-import roles from './assets/roles.json';
-import work from './assets/work.json'
-import gb from './assets/icons/gb-flag.svg'
-import fr from './assets/icons/fr-flag.svg'
+import styled from 'styled-components'
+import cut from './cut.svg'
 
-import code from './assets/workIcons/icons8-code-file-50.png'
-import data_icon from './assets/workIcons/icons8-data-configuration-50.png'
-import doc from './assets/workIcons/icons8-empty-document-50.png'
-import slides from './assets/workIcons/icons8-presentation-50.png'
-import excel from './assets/workIcons/icons8-spreadsheet-50.png'
-import strategy from './assets/workIcons/icons8-strategy-50.png'
-import arrow from './assets/workIcons/icons8-down-button-100.png'
-import Globe from "./globe/Globe";
-
-const en_prename = `Hi, I'm `
-const fr_premane = `Salut, je m'appelle `
-const en_prebio = "And I'm a"
-const fr_prebio = "Et je suis un"
-const en_contact ="Contact me"
-const fr_contact = "Contactez"
-const en_travel=" Where I've Been "
-const fr_travel = "Mes Voyages"
-const en_work = "What I've Done"
-const fr_work="Mes Travailles"
-
+/*
+Use this to pull all photos from a folder, and make an array from them
 function importAll(r) {
     return r.keys().map(r);
 }
 const images = importAll(require.context('./assets/photos/', false, /\.(png|jpe?g|svg)$/));
+*/
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            mode: 'day',
-            lang: 'en',
-            index: 0,
-            BGI: 0,
-            mapVisible: 0,
-        }
-    }
-    makeRoleArray(){
-       return this.state.lang === 'en' ? roles.roles.en : roles.roles.fr
-    }
-    determineLogo(T){
-        switch (T){
-            case "code":
-                return code;
-                break
-            case "excel":
-                return excel
-            case "doc":
-                return doc
-            case "strategy":
-                return strategy
-            case "data":
-                return data_icon
-            case "presentation":
-                return slides
-            default:
-                return excel
-        }
-    }
-    makeWorkArray(){
-        let arr = this.state.lang === 'en' ? work.work.en : work.work.fr
-        let inner = []
-        for(let i in arr){
-            inner.push(<div key={`${i}work`} className='workListItem'><img src={this.determineLogo(arr[i].type)}/>{arr[i].title}</div>)
-        }
-        return <div className='workListContainer'>{inner}</div>
-    }
+const BackgroundDiv = styled.div`
+    background-color: #0D1836;
+    width: 100vw;
+    height: 100vh;
+`
+const CutImage = styled.img`
+    height: 100vh;
+    width: auto;
+    float: right;
+`
+const LangToggle = styled.div`
+    color: white;
+    font-family: 'ABeeZee', Serif;
+    padding: 0;
+    width: 10vw;
+    text-align: left;
+    grid-area: toggle;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+`
 
-    componentDidMount() {
-        this.Words = setInterval(
-            () => this.changeWords(),
-            3000
-        )
-        this.Photos = setInterval(
-            () => this.changePhotos(),
-            4000
-        )
-    };
+const LangP = styled.div`
+    font-size: ${props => props.size}pt;
+    padding: 0;
+    margin: 0;
+    transition: font-size 0.5s;
+    width: 1.5vw
+    text-align: center;
+`
 
-    changeWords(){
-        this.state.index +1 === this.makeRoleArray().length ? this.setState({index: 0}) : this.setState({index: this.state.index +1})
-    }
-    changePhotos(){
-        this.state.BGI + 1 === images.length ? this.setState({BGI: 0}) : this.setState({BGI: this.state.BGI +1})
-    }
-    componentWillUnmount(){
-        this.Words.clear()
-        this.Photos.clear()
-    }
+const Words = styled.div`
+    font-size: 22pt;
+    line-height: 100%;
+    padding: 0;
+    width: 50vw;
+    display: inline-block;
+    grid-area: words;
+`
+
+const InlinePara = styled.p`
+    font-size: 42pt;
+    padding: 0;
+    color: white;
+    font-family: 'ABeeZee', Serif;
+`
+const Grid = styled.div`
+    display: inline-grid;
+    grid-template-columns: 10vw 45vw ;
+    grid-template-rows: 10vh 10vh 55vh 25vh;
+    grid-template-areas: 
+    "cs toggle"
+    "cs space"
+    "cs words"
+    "cs buttons"
+`
+const LinkButton = styled.a`
+    border: 3px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+    background-color: transparent;
+    max-width: 200px;
+    max-height: 50px;
+    font-size: 26pt;
+    font-family: 'ABeeZee', Serif;
+    grid-area: ${props => props.area}
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    vertical-align: middle;
+    line-height: 50px;
+`
+const ButtonGrid = styled.div`
+    display: grid;
+    grid-template-columns: 30% 5% 30% 5% 30%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "li s1 gh s2 ct"
+    "map map map map map";
+    grid-area: buttons;
+    margin: 0;
+    padding: 0;
+`
+
+export function App() {
+    const [en, changeLang] = useState(1)
+    /*
     changeLang = () => {
         this.state.lang === 'en' || "" ? this.setState({lang: "fr"}) : this.setState({lang: "en"});
     };
@@ -104,115 +108,32 @@ class App extends React.Component {
         console.log(this.state.mapVisible)
         this.state.mapVisible === 0 ? this.setState({mapVisible: 1}) : this.setState({mapVisible: 0})
     }
-    testToggle = {
-        color: 'white',
-        gridArea: 'toggle',
-        display: 'inline-block',
-        height: '4vh',
-        margin: '0',
-        padding: '0',
-        verticalAlign: 'text-bottom',
-        alignSelf: 'center'
-    }
-    globeStyle = {
-        gridColumn: '1 / end',
-        gridRow: '2 / last-line',
-    }
-    render() {
-        return (
+    */
+    var handleChange = () => changeLang(!en) && console.log(en)
 
-            <div className='pageMax '>
-
-
-                <div className='header'>
-                    <div className='inline logo'>
-                        <p className='minor'>{this.state.lang === 'en' ? en_prename : fr_premane}</p>
-                        <p className='logoText'>
-                            Alex
-                        </p>
-
-                    </div>
-                    <div className='bio'>
-                        <p className='minor'>{this.state.lang === 'en' ? `${en_prebio}${roles.roles.en[this.state.index].extraLetter} ` : `${fr_prebio}${roles.roles.fr[this.state.index].extraLetter} `}</p>
-                        <p className='bioText'>
-                            {this.state.lang === 'en' ? `${roles.roles.en[this.state.index].header}`: `${roles.roles.fr[this.state.index].header}`}
-                        </p>
-                    </div>
-                    <div className='accentBox'> </div>
-
-                    <div className='toggle'>
-
-                        <div style={this.testToggle} onClick={this.changeLang}>
-                            <div style={this.testToggle}>
-                                <img src={gb} style={{...this.testToggle, ...this.state.lang === 'en' ? {transform: 'scale(1.1)'} : {transform: 'scale(0.9)'}}}/>
-                                <b style={{fontSize: '4vh'}}>|</b>
-                                <img src={fr} style={{...this.testToggle, ...this.state.lang === 'fr' ? {transform: 'scale(1.1)'} : {transform: 'scale(0.9)'}}}/>
-                            </div>
-                        </div>
-
-                    </div>
-                    <a href="mailto:me@am.xyz?" className='contact'>
-                        <span className="contact">
-                            <div className="cl">
-                                {this.state.lang === 'en' ? `${en_contact}` : `${fr_contact}`}
-                            </div>
-                            <div className="cr">
-                                <img src={paperplane}/>
-                            </div>
-
-                        </span>
-                    </a>
-
-                </div>
-
-                <div className="boxes">
-
-
-                    <a className ='travel' href='#' onClick={this.toggleMap}>
-                        <div className="feature travel" style={{background: `url(${images[this.state.BGI]}) no-repeat center`}}>
-                            <mark>{this.state.lang === 'en' ? en_travel : fr_travel}</mark>
-                        </div>
-
-                    </a>
-
-                    <a className='github' href="https://github.com/amyer3" style={this.state.mapVisible === 0 ? {} : {display: 'none'}}>
-                        <div className="github feature">
-                            <div>
-                                <img src={gh}/>
-                            </div>
-
-                        </div>
-                    </a>
-
-                    <a className='linkedin' href="https://www.linkedin.com/in/alexjmyers/" style={this.state.mapVisible === 0 ? {} : {display: 'none'}}>
-                        <div className="linkedin feature">
-                            <div>
-                                <img src={li}/>
-                            </div>
-                        </div>
-
-                    </a>
-
-                        <div className='work' style={this.state.mapVisible === 0 ? {} : {display: 'none'}}>
-                            <div className='upperWork'><p>{this.state.lang === 'en' ? en_work : fr_work}</p>
-                            <img src={arrow}/>
-                            </div>
-
-                            <div className="list">
-                                {this.makeWorkArray()}
-                            </div>
-                        </div>
-
-                    <div style={{...this.globeStyle, ...this.state.mapVisible === 1 ? {} : {display: 'none'}}}>
-                        <Globe/>
-                    </div>
-
-
-
-                </div>
-            </div>
-        );
-    }
+    return (
+        <BackgroundDiv>
+            <Grid>
+                <LangToggle onClick={handleChange}>
+                    <LangP size={en ? 14 : 12}>EN</LangP> 
+                    <LangP size={14}>|</LangP>
+                    <LangP size={en ? 12 : 14}>FR</LangP>
+                </LangToggle>
+                <Words>
+                    <InlinePara><u>Alex</u></InlinePara>
+                    <InlinePara>{en ? "Engineering" : "Ingénierie"}.</InlinePara>
+                    <InlinePara>{en ? "Strategy" : "Stratégie"}.</InlinePara>
+                    <InlinePara>{en ? "Mostly edible baking" : "Presque comestible pain"}.</InlinePara>
+                </Words>
+                <ButtonGrid>
+                    <LinkButton href={'linkedin.com/in/alexjmyers'} area={'li'}>Linkedin</LinkButton>
+                    <LinkButton href={'linkedin.com/in/alexjmyers'} area={'gh'}>Github</LinkButton>
+                    <LinkButton href={'mailto:me@am.xyz?'} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
+                </ButtonGrid>
+            </Grid>
+            <CutImage src={cut} />
+        </BackgroundDiv>
+    )
 }
 
 export default App;
