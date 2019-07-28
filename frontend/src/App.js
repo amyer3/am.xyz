@@ -60,7 +60,7 @@ const InlinePara = styled.p`
 `
 const Grid = styled.div`
     display: inline-grid;
-    grid-template-columns: 10vw 40vw ;
+    grid-template-columns: 10vw 45vw ;
     grid-template-rows: 10vh 10vh 55vh 25vh;
     grid-template-areas: 
     "cs toggle"
