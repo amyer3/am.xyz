@@ -110,6 +110,10 @@ export function App() {
     */
     var handleChange = () => changeLang(!en) && console.log(en)
 
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    };
+
     return (
         <BackgroundDiv>
             <Grid>
