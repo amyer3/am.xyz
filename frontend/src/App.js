@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import './langSlider.css'
 import styled from 'styled-components'
 import cut from './cut.svg'
 
