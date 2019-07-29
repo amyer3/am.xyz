@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import './App.css';
 import styled from 'styled-components'
 import cut from './assets/cut.svg'
 
 /* import assets for use later on */
-
+import whatsapp from './assets/004-whatsapp.svg'
+import github from './assets/001-github.svg'
+import linkedin from './assets/002-linkedin.svg'
+import email from './assets/003-telegram.svg'
 /*
 Use this to pull all photos from a folder, and make an array from them
 function importAll(r) {
@@ -18,15 +20,12 @@ const images = importAll(require.context('./assets/photos/', false, /\.(png|jpe?
 
 */
 const widthRule = '(max-width: 768px)';
+const notWidthRule = '(min-width: 767px)';
 
 const BackgroundDiv = styled.div`
     background-color: #0D1836;
     width: 100vw;
     height: 100vh;
-
-    @media ${widthRule} {
-        background-color: red;
-    }
 `
 const CutImage = styled.img`
     height: 100vh;
@@ -56,6 +55,9 @@ const LangP = styled.div`
     transition: font-size 0.5s;
     width: 1.5vw;
     text-align: center;
+    @media ${widthRule} {
+        width: 6.5vw;
+    }
 `
 
 const Words = styled.div`
@@ -66,6 +68,7 @@ const Words = styled.div`
     grid-area: words;
     @media ${widthRule} {
         width: auto;
+        align-self: center;
     }
 `
 
@@ -75,7 +78,7 @@ const InlinePara = styled.p`
     color: white;
     font-family: 'ABeeZee', Serif;
     @media ${widthRule} {
-        font-size: 26pt;
+        font-size: 22pt;
     }
 `
 const Grid = styled.div`
@@ -89,7 +92,11 @@ const Grid = styled.div`
     "cs buttons";
     @media ${widthRule} {
         grid-template-columns: 8vw 92vw ;
-        grid-template-rows: 10vh 10vh 45vh 35vh;
+        grid-template-rows: 10vh 45vh 35vh;
+        grid-template-areas: 
+            "cs toggle"
+            "cs words"
+            "cs buttons";
     }
 `
 const LinkButton = styled.a`
@@ -109,8 +116,17 @@ const LinkButton = styled.a`
     outline: 0;
     vertical-align: middle;
     line-height: 50px;
+    @media ${notWidthRule}{
+        :before{
+        content: '${props => props.buttonText}';
+    }
+    }
     @media ${widthRule} {
         max-height: 80px;
+        line-height: 100%;
+        display: flex;
+        :after{
+        }
     }
 `
 const ButtonGrid = styled.div`
@@ -133,6 +149,14 @@ const ButtonGrid = styled.div`
 
     }
 `
+const ButtonImg = styled.img`
+    display: none;
+    @media ${widthRule} {
+        height: 80%;
+        margin: auto;
+        display: block;
+    }
+`
 
 export default function App() {
     const initState = window.navigator.language.includes('en') ? 1 : 0
@@ -140,11 +164,12 @@ export default function App() {
 
     var handleChange = () => changeLang(!en) && console.log(en)
 
-    function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || 
-        (navigator.userAgent.indexOf('IEMobile') !== -1)   ||
-        window.innerWidth <= 768
-    };
+    var isMobileDevice = () => (
+        (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)   ||
+        (window.innerWidth <= 768)
+    )
+        
+
     console.log(isMobileDevice())
 
     return (
@@ -162,10 +187,23 @@ export default function App() {
                     <InlinePara>{en ? "Nearly edible baking" : "Presque comestible pain"}.</InlinePara>
                 </Words>
                 <ButtonGrid>
-                    <LinkButton href={'https://linkedin.com/'} area={'li'}>Linkedin</LinkButton>
-                    <LinkButton href={'https://github.com/amyer3'} area={'gh'}>Github</LinkButton>
-                    <LinkButton href={`mailto:${process.env.REACT_APP_EMAIL}`} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
-                    <LinkButton href={process.env.REACT_APP_PHONE} area={'wa'}></LinkButton>
+
+                    <LinkButton href={'https://linkedin.com/'} area={'li'} buttonText={'Linkedin'}>
+                    <ButtonImg src={linkedin}/>
+                    </LinkButton>
+
+                    <LinkButton href={'https://github.com/amyer3'} area={'gh'} buttonText={'Github'}>
+                    <ButtonImg src={github}/>
+                    </LinkButton>
+
+                    <LinkButton href={`mailto:${process.env.REACT_APP_EMAIL}`} area={'ct'} buttonText={en ? "Contact" : "Contactez"}>
+                    <ButtonImg src={email}/>
+                    </LinkButton>
+
+                    <LinkButton href={process.env.REACT_APP_PHONE_NUMB} area={'wa'}>
+                    <ButtonImg src={whatsapp}/>
+                    </LinkButton>
+
                 </ButtonGrid>
             </Grid>
             <CutImage src={cut} />
