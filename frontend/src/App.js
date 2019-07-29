@@ -59,14 +59,12 @@ const LangP = styled.div`
 `
 
 const Words = styled.div`
-    font-size: 22pt;
     line-height: 100%;
     padding: 0;
     width: 50vw;
     display: inline-block;
     grid-area: words;
     @media ${widthRule} {
-        font-size: 18pt;
         width: auto;
     }
 `
@@ -82,7 +80,7 @@ const InlinePara = styled.p`
 `
 const Grid = styled.div`
     display: inline-grid;
-    grid-template-columns: 10vw 45vw ;
+    grid-template-columns: 8vw 52vw ;
     grid-template-rows: 10vh 10vh 55vh 25vh;
     grid-template-areas: 
     "cs toggle"
@@ -90,7 +88,7 @@ const Grid = styled.div`
     "cs words"
     "cs buttons";
     @media ${widthRule} {
-        grid-template-columns: 10vw 90vw ;
+        grid-template-columns: 8vw 92vw ;
         grid-template-rows: 10vh 10vh 45vh 35vh;
     }
 `
