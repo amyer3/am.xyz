@@ -3,6 +3,8 @@ import './App.css';
 import styled from 'styled-components'
 import cut from './assets/cut.svg'
 
+/* import assets for use later on */
+
 /*
 Use this to pull all photos from a folder, and make an array from them
 function importAll(r) {
@@ -10,30 +12,29 @@ function importAll(r) {
 }
 const images = importAll(require.context('./assets/photos/', false, /\.(png|jpe?g|svg)$/));
 
-    @media only screen and (${widthRule}) {
+    @media  ${widthRule} {
         background-color: red;
     }
-        @media only screen and (${widthRule}) {
-        grid-template-columns: 8% 38% 8% 38% 8%
-        grid-template-rows 50% 50%
-        grid-template-areas: 
-        "ls li cs gh rs"
-        "ls em cs wa rs";
 
-    }
 */
-const widthRule = 'max-width: 500px';
+const widthRule = '(max-width: 768px)';
 
 const BackgroundDiv = styled.div`
     background-color: #0D1836;
     width: 100vw;
     height: 100vh;
 
+    @media ${widthRule} {
+        background-color: red;
+    }
 `
 const CutImage = styled.img`
     height: 100vh;
     width: auto;
     float: right;
+    @media ${widthRule} {
+        display: none;
+    }
 
 `
 const LangToggle = styled.div`
@@ -64,6 +65,10 @@ const Words = styled.div`
     width: 50vw;
     display: inline-block;
     grid-area: words;
+    @media ${widthRule} {
+        font-size: 18pt;
+        width: auto;
+    }
 `
 
 const InlinePara = styled.p`
@@ -71,6 +76,9 @@ const InlinePara = styled.p`
     padding: 0;
     color: white;
     font-family: 'ABeeZee', Serif;
+    @media ${widthRule} {
+        font-size: 26pt;
+    }
 `
 const Grid = styled.div`
     display: inline-grid;
@@ -81,6 +89,10 @@ const Grid = styled.div`
     "cs space"
     "cs words"
     "cs buttons";
+    @media ${widthRule} {
+        grid-template-columns: 10vw 90vw ;
+        grid-template-rows: 10vh 10vh 45vh 35vh;
+    }
 `
 const LinkButton = styled.a`
     border: 3px solid white;
@@ -99,6 +111,9 @@ const LinkButton = styled.a`
     outline: 0;
     vertical-align: middle;
     line-height: 50px;
+    @media ${widthRule} {
+        max-height: 80px;
+    }
 `
 const ButtonGrid = styled.div`
     display: grid;
@@ -110,6 +125,15 @@ const ButtonGrid = styled.div`
     "li s1 gh s2 ct"
     "map map map map map";
     grid-area: buttons;
+
+    @media ${widthRule} {
+        grid-template-columns: 40% 10% 40% 10%;
+        grid-template-rows: 50% 50%;
+        grid-template-areas: 
+        "li cs gh rs"
+        "ct cs wa rs";
+
+    }
 `
 
 export default function App() {
@@ -119,8 +143,11 @@ export default function App() {
     var handleChange = () => changeLang(!en) && console.log(en)
 
     function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        return (typeof window.orientation !== "undefined") || 
+        (navigator.userAgent.indexOf('IEMobile') !== -1)   ||
+        window.innerWidth <= 768
     };
+    console.log(isMobileDevice())
 
     return (
         <BackgroundDiv>
@@ -134,13 +161,13 @@ export default function App() {
                     <InlinePara><u>Alex</u></InlinePara>
                     <InlinePara>{en ? "Engineering" : "Ingénierie"}.</InlinePara>
                     <InlinePara>{en ? "Strategy" : "Stratégie"}.</InlinePara>
-                    <InlinePara>{en ? "Mostly edible baking" : "Presque comestible pain"}.</InlinePara>
+                    <InlinePara>{en ? "Nearly edible baking" : "Presque comestible pain"}.</InlinePara>
                 </Words>
                 <ButtonGrid>
                     <LinkButton href={'https://linkedin.com/'} area={'li'}>Linkedin</LinkButton>
                     <LinkButton href={'https://github.com/amyer3'} area={'gh'}>Github</LinkButton>
                     <LinkButton href={`mailto:${process.env.REACT_APP_EMAIL}`} area={'ct'}>{en ? "Contact" : "Contactez"}</LinkButton>
-                    <LinkButton href={process.env.REACT_APP_PHONE}></LinkButton>
+                    <LinkButton href={process.env.REACT_APP_PHONE} area={'wa'}></LinkButton>
                 </ButtonGrid>
             </Grid>
             <CutImage src={cut} />

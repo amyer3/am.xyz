@@ -1,3 +1,4 @@
+/*
 @font-face {
   font-family: "PermanentMarker";
   src: local("PermenantMarker"), url(./assets/fonts/PermenantMarker.woff2) format('woff2');
@@ -6,13 +7,10 @@
   font-family: "Alegreya Sans SC Light";
   src: local('Alegreya Sans SC Light'), local('AlegreyaSansSC-Light'), url(https://fonts.gstatic.com/s/alegreyasanssc/v8/mtGm4-RGJqfMvt7P8FUr0Q1j-Hf1DuJH4iNhMKB8O-8.woff2) format('woff2');;
 }
-
-
+*/
 body{
   margin: 0;
   padding: 0;
   min-height: 100%;
   min-width: 100%;
-  transition: .5s;
-  overflow: hidden;
 }
