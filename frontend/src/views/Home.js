@@ -158,7 +158,7 @@ const ButtonImg = styled.img`
     }
 `
 
-export default function App() {
+export default function Home() {
     const initState = window.navigator.language.includes('en') ? 1 : 0
     const [en, changeLang] = useState(initState)
 
