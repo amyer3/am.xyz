@@ -21,7 +21,7 @@ const images = importAll(require.context('./assets/photos/', false, /\.(png|jpe?
 
 */
 const widthRule = "(max-width: 768px)";
-const notWidthRule = "(min-width: 767px)";
+const notWidthRule = "(min-width: 769px)";
 
 const BackgroundDiv = styled.div`
   background-color: #0d1836;
@@ -84,7 +84,7 @@ const InlinePara = styled.p`
 const Grid = styled.div`
   display: inline-grid;
   grid-template-columns: 8vw 52vw;
-  grid-template-rows: 10vh 10vh 45vh 35vh;
+  grid-template-rows: 5vh 10vh 55vh 35vh;
   grid-template-areas:
     "cs toggle"
     "cs space"
@@ -92,7 +92,7 @@ const Grid = styled.div`
     "cs buttons";
   @media ${widthRule} {
     grid-template-columns: 8vw 92vw;
-    grid-template-rows: 10vh 45vh 35vh;
+    grid-template-rows: 10vh 45vh 45vh;
     grid-template-areas:
       "cs toggle"
       "cs words"
@@ -106,7 +106,6 @@ const LinkButton = styled(Link)`
     display: {props => props.hide ? "none" : "inline-block"};
     color: white;
     background-color: transparent;
-    
     font-size: 26pt;
     font-family: 'ABeeZee', Serif;
     grid-area: ${props => props.area};
@@ -115,14 +114,14 @@ const LinkButton = styled(Link)`
     text-decoration: none;
     outline: 0;
     vertical-align: middle;
-    line-height: 50px;
-    max-height: 50px;
+    display: flex;
     }
 
     @media ${notWidthRule}{
         :before{
         content: '${props => (props.buttonText ? props.buttonText : false)}';
-        
+        max-height: 50px;
+        margin: auto;
     }
     @media ${widthRule} {
         max-height: 100rem;
@@ -136,7 +135,8 @@ const ButtonGrid = styled.div`
   margin: 0;
   padding: 0;
   grid-template-columns: 30% 5% 30% 5% 30%;
-  grid-template-rows: auto;
+  grid-template-rows: 25% 25%;
+  grid-row-gap: 10%;
   grid-template-areas:
     "li s1 gh s2 ct"
     "photo photo photo s2 map";
@@ -145,7 +145,7 @@ const ButtonGrid = styled.div`
 
   @media ${widthRule} {
     grid-template-columns: 40% 10% 40% 10%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 35% 35%;
     grid-template-areas:
       "li cs gh rs"
       "ct cs wa rs";
@@ -157,7 +157,7 @@ const ButtonImg = styled.img`
   @media ${widthRule} {
     height: 80%;
     margin: auto;
-    display: block;
+    display: flex;
   }
 `;
 
