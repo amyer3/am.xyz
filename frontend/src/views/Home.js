@@ -196,11 +196,19 @@ export default function Home() {
             buttonText={en ? "Contact" : "Contactez"}
           >
             <ButtonImg src={email} />
-          </LinkButton>,
+        </LinkButton>,
 
-          <LinkButton area={"photo"} buttonText={"Photography"} />,
+        <LinkButton 
+            to={'/p'}
+            area={"photo"} 
+            buttonText={"Photography"} 
+        />,
 
-          <LinkButton area={"map"} buttonText={"Travel"} />
+          <LinkButton 
+            to={"/m"}
+            area={"map"} 
+            buttonText={"Travel"} 
+        />
 ]
 
         var WhatsAppButton = <LinkButton
