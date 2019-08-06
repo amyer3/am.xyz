@@ -37,17 +37,19 @@ const LangToggle = styled.div`
   cursor: pointer;
   display: flex;
   align-self: center;
+  align-items: center;
 `;
 
 const LangP = styled.div`
-  font-size: ${props => props.size}pt;
+  font-size: ${props => props.size}vw;
   padding: 0;
   margin: 0;
-  transition: font-size 0.5s;
+  transition: font-size 0.3s;
   width: 1.5vw;
   text-align: center;
   @media ${widthRule} {
-    width: 6.5vw;
+    width: 9vw;
+    font-size: ${props => props.size + 2}vw;
   }
 `;
 
@@ -64,12 +66,12 @@ const Words = styled.div`
 `;
 
 const InlinePara = styled.p`
-  font-size: 42pt;
+  font-size: 4.5vw;
   padding: 0;
   color: white;
   font-family: "ABeeZee", Serif;
   @media ${widthRule} {
-    font-size: 22pt;
+    font-size: 8vw;
   }
 `;
 const Grid = styled.div`
@@ -217,9 +219,9 @@ if(isMobileDevice()){ ButtonBody.push(WhatsAppButton) }
     <BackgroundDiv>
       <Grid>
         <LangToggle onClick={handleChange}>
-          <LangP size={en ? 14 : 12}>EN</LangP>
-          <LangP size={14}>|</LangP>
-          <LangP size={en ? 12 : 14}>FR</LangP>
+          <LangP size={en ? 1.3 : 1}>EN</LangP>
+          <LangP size={1.3}>|</LangP>
+          <LangP size={en ? 1 : 1.3}>FR</LangP>
         </LangToggle>
 
         <Words>
