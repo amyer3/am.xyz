@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import cut from "../assets/svg/cut.svg";
 import { Link } from "react-router-dom";
+import font from '../assets/fonts/ABeeZee.woff2'
 
 /* import assets for use later on */
 import whatsapp from "../assets/svg/004-whatsapp.svg";
