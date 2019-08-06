@@ -1,25 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import cut from "../assets/cut.svg";
+import cut from "../assets/svg/cut.svg";
 import { Link } from "react-router-dom";
 
 /* import assets for use later on */
-import whatsapp from "../assets/004-whatsapp.svg";
-import github from "../assets/001-github.svg";
-import linkedin from "../assets/002-linkedin.svg";
-import email from "../assets/003-telegram.svg";
-/*
-Use this to pull all photos from a folder, and make an array from them
-function importAll(r) {
-    return r.keys().map(r);
-}
-const images = importAll(require.context('./assets/photos/', false, /\.(png|jpe?g|svg)$/));
+import whatsapp from "../assets/svg/004-whatsapp.svg";
+import github from "../assets/svg/001-github.svg";
+import linkedin from "../assets/svg/002-linkedin.svg";
+import email from "../assets/svg/003-telegram.svg";
 
-    @media  ${widthRule} {
-        background-color: red;
-    }
-
-*/
 const widthRule = "(max-width: 768px)";
 const notWidthRule = "(min-width: 769px)";
 
@@ -27,6 +16,7 @@ const BackgroundDiv = styled.div`
   background-color: #0d1836;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 `;
 const CutImage = styled.img`
   height: 100vh;
