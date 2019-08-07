@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import cut from "../assets/svg/cut.svg";
+import mcut from "../assets/svg/mobileCut.svg"
 import { Link } from "react-router-dom";
 import font from '../assets/fonts/ABeeZee.woff2'
 
@@ -22,9 +23,12 @@ const BackgroundDiv = styled.div`
 const CutImage = styled.img`
   height: 100vh;
   width: auto;
-  float: right;
+  position: fixed;
+    right: 0vw;
   @media ${widthRule} {
-    display: none;
+    height: auto;
+    position: fixed;
+    right: 0vw;
   }
 `;
 const LangToggle = styled.div`
@@ -69,7 +73,7 @@ const InlinePara = styled.p`
   font-size: 4.5vw;
   padding: 0;
   color: white;
-  font-family: "ABeeZee", Serif;
+  font-family: "ABeeZee", sans-serif;
   @media ${widthRule} {
     font-size: 8vw;
   }
@@ -245,7 +249,7 @@ if(isMobileDevice()){ ButtonBody.push(WhatsAppButton) }
         </ButtonGrid>
       </Grid>
 
-      <CutImage src={cut} />
+      <CutImage src={isMobileDevice() ? mcut : cut} />
     </BackgroundDiv>
   );
 }
