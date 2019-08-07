@@ -1,9 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Route, BrowserRouter } from 'react-router-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Home = React.lazy(() => import('./views/Home'))
+const Photo = React.lazy(() => import('./views/Photography'))
+
+ReactDOM.render(
+<BrowserRouter>
+    <React.Suspense fallback={<div></div>}>
+        <Route path='/p' name='Photography' render={props => <Photo {...props}/>} />
+        <Route path='/m' name='Map' render={props => <div></div>} />
+        <Route exact path='/' name='Home' render={props => <Home {...props}/>} />
+    </React.Suspense>
+</BrowserRouter>
+    , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

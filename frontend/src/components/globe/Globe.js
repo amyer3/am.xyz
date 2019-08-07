@@ -7,8 +7,8 @@ import {
     Markers,
     Marker
 } from "react-simple-maps"
-import paths from './topo110m.json'
-import places from './places.json'
+import paths from './topo110m.json.js'
+import places from './places.json.js'
 
 
 const wrapperStyles = {
