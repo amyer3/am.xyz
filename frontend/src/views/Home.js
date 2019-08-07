@@ -24,11 +24,11 @@ const CutImage = styled.img`
   height: 100vh;
   width: auto;
   position: fixed;
-    right: 0vw;
+  right: 0vw;
   @media ${widthRule} {
     height: auto;
     position: fixed;
-    right: 0vw;
+    max-height: 25vh;
   }
 `;
 const LangToggle = styled.div`
