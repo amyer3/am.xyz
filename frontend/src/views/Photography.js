@@ -61,6 +61,8 @@ const Header = styled(Link)`
   border-radius: 50%;
 `;
 
+// TODO add in location popover ?
+/*
 const LocationPop = styled.div`
   border-radius: 50px;
   background: darkgrey;
@@ -72,6 +74,7 @@ const LocationPop = styled.div`
   margin: auto;
   text-align: center;
 `;
+*/
 
 let PhotoArray = images.map(imgSRC => <PhotoCard imgURL={imgSRC} />);
 
@@ -86,7 +89,6 @@ export default function PhotoDisplay(props) {
       <Header to="/">Back</Header>
       <PhotoGrid>
         {PhotoArray}
-        <LocationPop><b>Seattle, WA</b></LocationPop>
       </PhotoGrid>
       
     </React.Suspense>
