@@ -10,7 +10,6 @@ import whatsapp from "../assets/svg/004-whatsapp.svg";
 import github from "../assets/svg/001-github.svg";
 import linkedin from "../assets/svg/002-linkedin.svg";
 import email from "../assets/svg/003-telegram.svg";
-import check from '../assets/svg/check.svg'
 
 const widthRule = "(max-width: 768px)";
 const notWidthRule = "(min-width: 769px)";
@@ -25,12 +24,11 @@ const CutImage = styled.img`
   height: 100vh;
   width: auto;
   position: fixed;
-  right: 0vw;
+    right: 0vw;
   @media ${widthRule} {
     height: auto;
     position: fixed;
     right: 0vw;
-    max-height: 25vh;
   }
 `;
 const LangToggle = styled.div`
@@ -233,7 +231,6 @@ if(isMobileDevice()){ ButtonBody.push(WhatsAppButton) }
         <Words>
           <InlinePara>
             <u>Alex</u>
-            <span> <img src={check} /> </span>
           </InlinePara>
           <InlinePara>{en ? "Strategy" : "Stratégie"}.</InlinePara>
           <InlinePara>{en ? "Engineering" : "Ingénierie"}.</InlinePara>
