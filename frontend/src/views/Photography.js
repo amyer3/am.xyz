@@ -86,7 +86,6 @@ export default function PhotoDisplay(props) {
       <Header to="/">Back</Header>
       <PhotoGrid>
         {PhotoArray}
-        <LocationPop><b>Seattle, WA</b></LocationPop>
       </PhotoGrid>
       
     </React.Suspense>
