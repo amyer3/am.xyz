@@ -19,8 +19,7 @@ const wrapperStyles = {
 }
 
 
-export default class Globe extends React.Component {
-    render() {
+export default function Globe() {
         return (
             <div style={wrapperStyles}>
                 <ComposableMap
@@ -99,5 +98,4 @@ export default class Globe extends React.Component {
                 </ComposableMap>
             </div>
         )
-    }
 }
