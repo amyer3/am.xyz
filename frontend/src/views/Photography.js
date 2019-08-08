@@ -20,7 +20,8 @@ const PhotoGrid = styled.div`
 
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 5%;
+
+
   margin-bottom: 10%;
 
   grid-row-gap: 5%;
@@ -68,6 +69,11 @@ const Header = styled(Link)`
 
 // TODO add in location popover ?
 /*
+
+  border-radius: 50%;
+`;
+
+
 const LocationPop = styled.div`
   border-radius: 50px;
   background: darkgrey;
@@ -79,6 +85,7 @@ const LocationPop = styled.div`
   margin: auto;
   text-align: center;
 `;
+
 */
 
 let PhotoArray = images.map(imgSRC => <PhotoCard imgURL={imgSRC} />);
