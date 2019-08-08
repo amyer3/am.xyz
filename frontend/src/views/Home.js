@@ -127,6 +127,35 @@ const LinkButton = styled(Link)`
         display: flex;
     }
 `;
+const ExLinkButton = styled.a`
+    border: 3px solid white;
+    border-radius: 10px;
+    display: {props => props.hide ? "none" : "inline-block"};
+    color: white;
+    background-color: transparent;
+    font-size: 26pt;
+    font-family: 'ABeeZee', Serif;
+    grid-area: ${props => props.area};
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    vertical-align: middle;
+    display: flex;
+    }
+
+    @media ${notWidthRule}{
+        :before{
+        content: '${props => (props.buttonText ? props.buttonText : false)}';
+        max-height: 50px;
+        margin: auto;
+    }
+    @media ${widthRule} {
+        max-height: 100rem;
+        line-height: 100%;
+        display: flex;
+    }
+`;
 
 const ButtonGrid = styled.div`
   grid-area: buttons;
@@ -169,25 +198,25 @@ export default function Home() {
     window.innerWidth <= 768;
 
   var ButtonBody = [
-    <LinkButton to={"https://linkedin.com"} area={"li"} buttonText={"LinkedIn"}>
+    <ExLinkButton href={"https://linkedin.com"} area={"li"} buttonText={"LinkedIn"}>
       <ButtonImg src={linkedin} />
-    </LinkButton>,
+    </ExLinkButton>,
 
-    <LinkButton
-      to={"https://github.com/amyer3"}
+    <ExLinkButton
+      href={"https://github.com/amyer3"}
       area={"gh"}
       buttonText={"Github"}
     >
       <ButtonImg src={github} />
-    </LinkButton>,
+    </ExLinkButton>,
 
-    <LinkButton
-      to={`mailto:${process.env.REACT_APP_EMAIL}`}
+    <ExLinkButton
+      href={`mailto:${process.env.REACT_APP_EMAIL}`}
       area={"ct"}
       buttonText={en ? "Contact" : "Contactez"}
     >
       <ButtonImg src={email} />
-    </LinkButton>,
+    </ExLinkButton>,
 
     <LinkButton to={"/p"} area={"photo"} buttonText={"Photography"} />,
 
@@ -195,13 +224,13 @@ export default function Home() {
   ];
 
   var WhatsAppButton = (
-    <LinkButton
-      to={process.env.REACT_APP_PHONE_NUMB}
+    <ExLinkButton
+      href={process.env.REACT_APP_PHONE_NUMB}
       area={"wa"}
       hide={isMobileDevice() ? "" : true}
     >
       <ButtonImg src={whatsapp} />
-    </LinkButton>
+    </ExLinkButton>
   );
 
   if (isMobileDevice()) {
