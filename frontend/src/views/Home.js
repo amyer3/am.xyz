@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 import cut from "../assets/svg/cut.svg";
-import mcut from "../assets/svg/mobileCut.svg"
+import mcut from "../assets/svg/mobileCut.svg";
 import { Link } from "react-router-dom";
-import font from '../assets/fonts/ABeeZee.woff2'
+import font from "../assets/fonts/ABeeZee.woff2";
+
 
 /* import assets for use later on */
 import whatsapp from "../assets/svg/004-whatsapp.svg";
@@ -18,6 +20,7 @@ const BackgroundDiv = styled.div`
   background-color: #0d1836;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 `;
 const CutImage = styled.img`
   height: 100vh;
@@ -69,18 +72,18 @@ const Words = styled.div`
 `;
 
 const InlinePara = styled.p`
-  font-size: 42pt;
+  font-size: 4.5vw;
   padding: 0;
   color: white;
-  font-family: "ABeeZee", Serif;
+  font-family: "ABeeZee", sans-serif;
   @media ${widthRule} {
-    font-size: 22pt;
+    font-size: 8vw;
   }
 `;
 const Grid = styled.div`
   display: inline-grid;
   grid-template-columns: 8vw 52vw;
-  grid-template-rows: 10vh 10vh 45vh 35vh;
+  grid-template-rows: 5vh 10vh 55vh 35vh;
   grid-template-areas:
     "cs toggle"
     "cs space"
@@ -102,7 +105,6 @@ const LinkButton = styled(Link)`
     display: {props => props.hide ? "none" : "inline-block"};
     color: white;
     background-color: transparent;
-    
     font-size: 26pt;
     font-family: 'ABeeZee', Serif;
     grid-area: ${props => props.area};
@@ -111,14 +113,43 @@ const LinkButton = styled(Link)`
     text-decoration: none;
     outline: 0;
     vertical-align: middle;
-    line-height: 50px;
-    max-height: 50px;
+    display: flex;
     }
 
     @media ${notWidthRule}{
         :before{
         content: '${props => (props.buttonText ? props.buttonText : false)}';
-        
+        max-height: 50px;
+        margin: auto;
+    }
+    @media ${widthRule} {
+        max-height: 100rem;
+        line-height: 100%;
+        display: flex;
+    }
+`;
+const ExLinkButton = styled.a`
+    border: 3px solid white;
+    border-radius: 10px;
+    display: {props => props.hide ? "none" : "inline-block"};
+    color: white;
+    background-color: transparent;
+    font-size: 26pt;
+    font-family: 'ABeeZee', Serif;
+    grid-area: ${props => props.area};
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    vertical-align: middle;
+    display: flex;
+    }
+
+    @media ${notWidthRule}{
+        :before{
+        content: '${props => (props.buttonText ? props.buttonText : false)}';
+        max-height: 50px;
+        margin: auto;
     }
     @media ${widthRule} {
         max-height: 100rem;
@@ -128,6 +159,7 @@ const LinkButton = styled(Link)`
 `;
 
 const ButtonGrid = styled.div`
+  grid-area: buttons;
   display: grid;
   margin: 0;
   padding: 0;
@@ -144,9 +176,8 @@ const ButtonGrid = styled.div`
     grid-template-columns: 40% 10% 40% 10%;
     grid-template-rows: 35% 35%;
     grid-template-areas:
-      "li cs gh rs"
-      "ct cs wa rs";
-    grid-row-gap: 10%;
+      "li s1 gh s2"
+      "ct s1 wa s2";
   }
 `;
 const ButtonImg = styled.img`
@@ -157,7 +188,6 @@ const ButtonImg = styled.img`
     display: flex;
   }
 `;
-
 
 export default function Home() {
   const initState = window.navigator.language.includes("en") ? 1 : 0;
@@ -170,54 +200,45 @@ export default function Home() {
     navigator.userAgent.indexOf("IEMobile") !== -1 ||
     window.innerWidth <= 768;
 
-    var ButtonBody = [
-    <LinkButton
-            to={"https://linkedin.com"}
-            area={"li"}
-            buttonText={"LinkedIn"}
-          >
-            <ButtonImg src={linkedin} />
-          </LinkButton>,
+  var ButtonBody = [
+    <ExLinkButton href={"https://linkedin.com"} area={"li"} buttonText={"LinkedIn"}>
+      <ButtonImg src={linkedin} />
+    </ExLinkButton>,
 
-          <LinkButton
-            to={"https://github.com/amyer3"}
-            area={"gh"}
-            buttonText={"Github"}
-          >
-            <ButtonImg src={github} />
-          </LinkButton>,
+    <ExLinkButton
+      href={"https://github.com/amyer3"}
+      area={"gh"}
+      buttonText={"Github"}
+    >
+      <ButtonImg src={github} />
+    </ExLinkButton>,
 
-          <LinkButton
-            to={`mailto:${process.env.REACT_APP_EMAIL}`}
-            area={"ct"}
-            buttonText={en ? "Contact" : "Contactez"}
-          >
-            <ButtonImg src={email} />
-        </LinkButton>,
+    <ExLinkButton
+      href={`mailto:${process.env.REACT_APP_EMAIL}`}
+      area={"ct"}
+      buttonText={en ? "Contact" : "Contactez"}
+    >
+      <ButtonImg src={email} />
+    </ExLinkButton>,
 
-        <LinkButton 
-            to={'/p'}
-            area={"photo"} 
-            buttonText={"Photography"} 
-        />,
+    <LinkButton to={"/p"} area={"photo"} buttonText={"Photography"} />,
 
-          <LinkButton 
-            to={"/m"}
-            area={"map"} 
-            buttonText={"Travel"} 
-        />
-]
+    <LinkButton to={"/m"} area={"map"} buttonText={"Travel"} />
+  ];
 
-        var WhatsAppButton = <LinkButton
-                        to={process.env.REACT_APP_PHONE_NUMB}
-                        area={"wa"}
-                        hide={isMobileDevice() ? "" : true}
-                        >
-                        <ButtonImg src={whatsapp} />
-                    </LinkButton>
+  var WhatsAppButton = (
+    <ExLinkButton
+      href={process.env.REACT_APP_PHONE_NUMB}
+      area={"wa"}
+      hide={isMobileDevice() ? "" : true}
+    >
+      <ButtonImg src={whatsapp} />
+    </ExLinkButton>
+  );
 
-if(isMobileDevice()){ ButtonBody.push(WhatsAppButton) }
-
+  if (isMobileDevice()) {
+    ButtonBody.push(WhatsAppButton);
+  }
 
   return (
     <BackgroundDiv>
@@ -239,14 +260,7 @@ if(isMobileDevice()){ ButtonBody.push(WhatsAppButton) }
           </InlinePara>
         </Words>
 
-        <ButtonGrid>
-        {ButtonBody}
-
-
-
-          
-
-        </ButtonGrid>
+        <ButtonGrid>{ButtonBody}</ButtonGrid>
       </Grid>
 
       <CutImage src={isMobileDevice() ? mcut : cut} />

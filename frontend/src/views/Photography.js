@@ -20,7 +20,8 @@ const PhotoGrid = styled.div`
 
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 10%;
+
+
   margin-bottom: 10%;
 
   grid-row-gap: 5%;
@@ -29,7 +30,7 @@ const PhotoGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 2%;
-    margin-top: 20%;
+    margin-top: 5%;
     margin-bottom: 25%;
   }
 `;
@@ -44,6 +45,7 @@ const PhotoCard = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(${props => props.imgURL});
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.45);
 
   @media ${widthRule} {
     display: grid;
@@ -53,13 +55,24 @@ const PhotoCard = styled.div`
 
 const Header = styled(Link)`
   margin-left: 5%;
-  font-size: 12pt;
+  font-size: 2.5vh;
   text-decoration: none;
   underline: none;
   position: static;
   background: white;
+  border-radius: 50px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%; 
+  padding-left: 1%; 
+  padding-right: 1%;
+`;
+
+// TODO add in location popover ?
+/*
+
   border-radius: 50%;
 `;
+
 
 const LocationPop = styled.div`
   border-radius: 50px;
@@ -73,6 +86,8 @@ const LocationPop = styled.div`
   text-align: center;
 `;
 
+*/
+
 let PhotoArray = images.map(imgSRC => <PhotoCard imgURL={imgSRC} />);
 
 export default function PhotoDisplay(props) {
@@ -83,10 +98,8 @@ export default function PhotoDisplay(props) {
 
   return (
     <React.Suspense fallback={<span>Content Loading</span>}>
-      <Header to="/">Back</Header>
       <PhotoGrid>
         {PhotoArray}
-        <LocationPop><b>Seattle, WA</b></LocationPop>
       </PhotoGrid>
       
     </React.Suspense>
