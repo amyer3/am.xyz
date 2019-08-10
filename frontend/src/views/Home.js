@@ -183,8 +183,7 @@ const ButtonImg = styled.img`
     height: 80%;
     margin: auto;
     display: flex;
-  }
-`;
+  }`;
 
 export default function Home() {
   const initState = window.navigator.language.includes("en") ? 1 : 0;

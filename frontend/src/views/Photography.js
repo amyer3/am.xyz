@@ -44,7 +44,6 @@ const PhotoCard = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(${props => props.imgURL});
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.45);
 
   @media ${widthRule} {
     display: grid;
@@ -80,6 +79,9 @@ const LocationPop = styled.div`
   text-align: center;
 `;
 */
+const Fallback = styled.div`
+  background-color: green;
+`
 
 let PhotoArray = images.map(imgSRC => <PhotoCard imgURL={imgSRC} />);
 
@@ -90,12 +92,14 @@ export default function PhotoDisplay(props) {
     window.innerWidth <= 768;
 
   return (
-    <React.Suspense fallback={<span>Content Loading</span>}>
-      <PhotoGrid>
-        {PhotoArray}
-      </PhotoGrid>
-      
+    
+    <React.Suspense fallback={<Fallback />}>
+    <PhotoGrid>
+    {PhotoArray}
+    </PhotoGrid>
+        
     </React.Suspense>
+
 
   );
 }
