@@ -15,5 +15,15 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+function importAll(r) {
+    return r.keys().map(r);
+  }
+  
+  const images = importAll(
+    require.context("../assets/photos/", false, /\.(png|jpe?g)$/)
+  );
+
+route.get('/photos', (req, res) => {} )
+
 app.use("/api", router);
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
