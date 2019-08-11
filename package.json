@@ -1,7 +1,7 @@
 {
   "name": "am.xyz",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal Website, backend & frontend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/amyer3/am.xyz#readme",
   "dependencies": {
-    "concurrently": "^4.1.1"
+    "concurrently": "^4.1.1",
+    "cors": "^2.8.5"
   }
 }

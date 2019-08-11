@@ -3,9 +3,7 @@ var cors = require("cors");
 const bodyParser = require("body-parser");
 
 const DB_LOC = "~/Dropbox/";
-const PATH_TO_NEW = "Photos_xyz_upload";
 const PATH_TO_RESOURCE = "Photos_xyz";
-const PATH_TO_ARCHIVE = "Photos_xyz_archive";
 const TIMEOUT = 10800;
 
 const API_PORT = 3001;
@@ -15,15 +13,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-function importAll(r) {
-    return r.keys().map(r);
-  }
-  
-  const images = importAll(
-    require.context("../assets/photos/", false, /\.(png|jpe?g)$/)
-  );
-
-route.get('/photos', (req, res) => {} )
-
 app.use("/api", router);
+app.use('/images', express.static(__dirname + "/photos/IMG_0814.jpg" ))
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
