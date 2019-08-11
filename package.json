@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/amyer3/am.xyz/issues"
   },
-  "homepage": "https://github.com/amyer3/am.xyz#readme"
+  "homepage": "https://github.com/amyer3/am.xyz#readme",
+  "dependencies": {
+    "concurrently": "^4.1.1"
+  }
 }
