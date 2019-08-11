@@ -66,6 +66,11 @@ const Header = styled(Link)`
 
 // TODO add in location popover ?
 /*
+
+  border-radius: 50%;
+`;
+
+
 const LocationPop = styled.div`
   border-radius: 50px;
   background: darkgrey;
@@ -77,6 +82,7 @@ const LocationPop = styled.div`
   margin: auto;
   text-align: center;
 `;
+
 */
 const Fallback = styled.div`
   background-color: green;

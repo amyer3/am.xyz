@@ -6,6 +6,7 @@ import mcut from "../assets/svg/mobileCut.svg";
 import { Link } from "react-router-dom";
 import font from "../assets/fonts/ABeeZee.woff2";
 
+
 /* import assets for use later on */
 import whatsapp from "../assets/svg/004-whatsapp.svg";
 import github from "../assets/svg/001-github.svg";
@@ -165,9 +166,11 @@ const ButtonGrid = styled.div`
   grid-template-columns: 30% 5% 30% 5% 30%;
   grid-template-rows: 25% 25%;
   grid-row-gap: 10%;
-  grid-template-areas: 
-  "li s1 gh s2 ct"
-  "photo photo photo s2 map";
+  grid-template-areas:
+    "li s1 gh s2 ct"
+    "photo photo photo s2 map";
+  grid-area: buttons;
+  justify-items: center;
 
   @media ${widthRule} {
     grid-template-columns: 40% 10% 40% 10%;
