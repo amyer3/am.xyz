@@ -17,14 +17,12 @@ const images = importAll(
 const PhotoGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 20%;
 
-
-  margin-bottom: 10%;
-
-  grid-row-gap: 5%;
+  grid-row-gap: 3%;
 
   @media ${widthRule} {
     display: grid;
@@ -87,6 +85,9 @@ const LocationPop = styled.div`
 `;
 
 */
+const Fallback = styled.div`
+  background-color: green;
+`
 
 let PhotoArray = images.map(imgSRC => <PhotoCard imgURL={imgSRC} />);
 
@@ -101,8 +102,8 @@ export default function PhotoDisplay(props) {
       <PhotoGrid>
         {PhotoArray}
       </PhotoGrid>
-      
     </React.Suspense>
+
 
   );
 }
