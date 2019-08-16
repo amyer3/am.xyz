@@ -62,7 +62,6 @@ const LangP = styled.div`
 const Words = styled.div`
   line-height: 100%;
   padding: 0;
-  width: 50vw;
   display: inline-block;
   grid-area: words;
   @media ${widthRule} {
@@ -82,7 +81,7 @@ const InlinePara = styled.p`
 `;
 const Grid = styled.div`
   display: inline-grid;
-  grid-template-columns: 8vw 52vw;
+  grid-template-columns: 4vw 58vw;
   grid-template-rows: 5vh 10vh 55vh 35vh;
   grid-template-areas:
     "cs toggle"
@@ -222,7 +221,7 @@ export default function Home() {
 
     <LinkButton to={"/p"} area={"photo"} buttonText={"Photography"} />,
 
-    <LinkButton to={"/m"} area={"map"} buttonText={"Travel"} />
+    <LinkButton to={"/m"} area={"map"} buttonText={en ? "Travel" : "Voyages"} />
   ];
 
   var WhatsAppButton = (
