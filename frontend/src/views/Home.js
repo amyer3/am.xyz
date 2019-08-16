@@ -221,7 +221,9 @@ export default function Home() {
 
     <LinkButton to={"/p"} area={"photo"} buttonText={"Photography"} />,
 
+
     <LinkButton to={"/m"} area={"map"} buttonText={en ? "Travel" : "Voyages"} />
+
   ];
 
   var WhatsAppButton = (
