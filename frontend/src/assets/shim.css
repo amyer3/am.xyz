@@ -1,0 +1,30 @@
+.border-10 {
+    border-radius: 10px !important; 
+    border: 3px solid white !important;
+}
+.abz {
+    font-family: 'ABeeZee', Serif !important;
+}
+.point{
+    cursor: pointer;
+    display: flex;
+}
+.size-limit{
+    max-width: 400px;
+    max-height: 400px;
+}
+.photocard{
+    width: 100rem;
+    height: 100rem;
+    max-width: 400px;
+    max-height: 400px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.45);
+  
+    @media max-width: 768px {
+      max-width: 90vw;
+    }
+}

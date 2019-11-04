@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter } from 'react-router-dom'
+import './assets/shim.css'
 
 const Home = React.lazy(() => import('./views/Home'))
 const Photo = React.lazy(() => import('./views/Photography'))
+
 
 ReactDOM.render(
 <BrowserRouter>
