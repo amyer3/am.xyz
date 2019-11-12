@@ -12,7 +12,7 @@ ReactDOM.render(
 <BrowserRouter>
     <React.Suspense fallback={<div></div>}>
         <Route path='/p' name='Photography' render={props => <Photo {...props}/>} />
-        <Route path='/m' name='Map' render={props => <div></div>} />
+        <Route path='/m' name='Map' render={props => <div/>} />
         <Route exact path='/' name='Home' render={props => <Home {...props}/>} />
     </React.Suspense>
 </BrowserRouter>
