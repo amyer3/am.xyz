@@ -3,7 +3,7 @@ var cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan')
 const path = require('path')
-
+const helmet = require('helmet')
 
 const logs = require("./routes/logs.routes")
 const images = require("./routes/photos.routes")
@@ -21,6 +21,7 @@ app.use(logger('dev'))
  * app uses /api/prefix then routes to images to find specific resource requested
  * @example /api/i/count => api/i routes to images, then images calls /count to return data
  */
+app.use(helmet())
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.use('/api/i', images)
 app.use('/api/l', logs)
