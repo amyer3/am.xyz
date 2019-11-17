@@ -19,7 +19,7 @@ export default function PhotoDisplay(props) {
   const [PA, updatePA] = React.useState([]);
 
   function GetArray() {
-      fetch(TESTURL)
+      fetch(URL)
         .then(resp => resp.json())
         .then(json => json.list.forEach(v => updatePA(PA => [...PA, <React.Suspense fallback={<span>Content Loading</span>}><div className="photocard" style={{ backgroundImage: `url(${v.loc})` }}/></React.Suspense>])))
     }
