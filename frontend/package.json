@@ -2,7 +2,6 @@
   "name": "am.xyz",
   "version": "0.2.0",
   "private": true,
-  "proxy": "http://localhost:3001",
   "dependencies": {
     "d3": "^5.9.2",
     "eslint": "^5.16.0",
