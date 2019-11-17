@@ -81,7 +81,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="col-6 col-md-3 d-sm-flex justify-content-center text-center d-md-none m-pad">
+              <div className="col-6 col-md-3 d-sm-flex d-md-none justify-content-center text-center m-pad">
                 <a href="/p" type="button" className="btn btn-xl btn-block btn-outline-light border-10">
                   <img className="d-sm-block d-md-none" src={cam}  className="d-md-none"/>
                 </a>

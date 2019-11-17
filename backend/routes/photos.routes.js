@@ -16,7 +16,7 @@ const dir = './public/photos';
 router.get('/list', (req, res) => {
     fs.readdir(dir, (err, files) => {
       console.log(files)
-      var fl = files.map(l => ({'loc': 'http://localhost:3001/resource/photos/'+l}))
+      var fl = files.map(l => ({'loc': 'http://www.am.xyz/photos/'+l}))
         res.status(200)
         .json({
           success: true, 
