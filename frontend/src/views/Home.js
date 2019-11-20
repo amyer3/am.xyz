@@ -82,7 +82,7 @@ export default function Home() {
               </div>
 
               <div className="col-6 col-md-3 d-sm-flex d-md-none justify-content-center text-center m-pad">
-                <a href="/p" type="button" className="btn btn-xl btn-block btn-outline-light border-10">
+                <a href="/p"  className="btn btn-xl btn-block btn-outline-light border-10">
                   <img className="d-sm-block d-md-none" src={cam}  className="d-md-none"/>
                 </a>
               </div>
@@ -90,13 +90,13 @@ export default function Home() {
 
             <div className="row mt-4 d-md-flex justify-content-center text-center d-none">
               <div className="col-6 justify-content-center">
-                <a href="/p" type="button" className="btn btn-xl btn-block btn-outline-light border-10">
+                <a href="/p" className="btn btn-xl btn-block btn-outline-light border-10">
                   <h2 className="mb-0 d-none d-md-block">Photography</h2>
                 </a>
               </div>
 
               <div className="col-sm-3 d-flex justify-content-center text-center d-none d-md-block">
-                <a href="/m" type="button" className="btn btn-xl btn-block btn-outline-light border-10">
+                <a href="/m" className="btn btn-xl btn-block btn-outline-light border-10">
                   <h2 className="mb-0 d-none d-md-block">{en ? "Travel" : "Voyages"}</h2>
                 </a>
               </div>

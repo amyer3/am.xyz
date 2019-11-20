@@ -27,5 +27,5 @@ app.use('/api/i', images)
 app.use('/api/l', logs)
 app.use('/api/m', maps)
 app.use('/photos/', express.static(__dirname+'/public'))
-app.get('*', (req, res) => res.sendFile(path.normalize(__dirname, '../frontend/build/index.html')))
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../frontend/build/index.html')))
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT} at ${__dirname}`));
