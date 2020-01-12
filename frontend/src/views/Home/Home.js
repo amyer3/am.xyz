@@ -97,7 +97,7 @@ export default function Home() {
 
               <div className="col-sm-3 d-flex justify-content-center text-center d-none d-md-block">
                 <a href="/m" className="btn btn-xl btn-block btn-outline-light border-10">
-                  <h2 className="mb-0 d-none d-md-block">{en ? "Travel" : "Voyages"}</h2>
+                  <h2 className="mb-0 d-none d-md-block">Data</h2>
                 </a>
               </div>
               <div className="col-sm-3" />
