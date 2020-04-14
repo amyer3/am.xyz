@@ -24,6 +24,35 @@
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
   border-radius: 10px !important;
 }
+
+.photocard:hover > .geo{
+    top: 92%;
+}
+
+@keyframes slideUp{
+    from {background-color: green;}
+    to {background-color: hotpink;}
+}
+
+.geo {
+  position: relative;
+  z-index: 1000;
+  background: green;
+  height: 1.3rem;
+  top: revert;
+  width: 10rem;
+  float: right;
+  left: -5%;
+  top: 105%;
+  border-radius: 3rem;
+  transition: all .5s ease-in-out;
+  text-align: center;
+  line-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nil-button {
   text-decoration: none !important;
   background-color: transparent !important;

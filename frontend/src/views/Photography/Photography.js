@@ -1,4 +1,5 @@
 import React from "react";
+import PhotoBox from '../../components/PhotoBox'
 
 // //Use this to pull all photos from a folder, and make an array from them
 // function importAll(r) {return r.keys().map(r);}
@@ -15,34 +16,40 @@ import React from "react";
 const URL = 'https://www.am.xyz/api/i/list'
 const TESTURL = 'http://localhost:3001/api/i/list'
 export default function PhotoDisplay(props) {
-  const [loading, toggleLoading] = React.useState(true);
-  const [PA, updatePA] = React.useState([]);
+    const [loading, toggleLoading] = React.useState(true);
+    const [PA, updatePA] = React.useState([]);
 
-  function GetArray() {
-      fetch(URL)
-        .then(resp => resp.json())
-        .then(json => json.list.forEach(v => updatePA(PA => [...PA, <React.Suspense fallback={<span>Content Loading</span>}><div className="photocard" style={{ backgroundImage: `url(${v.loc})` }}/></React.Suspense>])))
+    function GetArray() {
+        fetch(URL)
+            .then(resp => resp.json())
+            .then(json => json.list.forEach(async function (v) {
+                var location = await v.loc
+                var photo = <PhotoBox photoSRC={location} />
+                updatePA(PA => [...PA, photo])
+                console.log(v.loc)
+            }
+        ))
     }
-  
-  if (loading === true) {
-    GetArray()
-    toggleLoading(loading => !loading);
-  }
 
-  return (
-    <>
-      <div className="navbar fixed-top navbar-light bgw justify-content-center abz p-0">
-        <a className=" nav-item nav-link w-100 justify-content-center" href="/">
-          <h4 className="text-dark text-center">Alex</h4>
-        </a>
-      </div>
-      
-      <div className="photogrid">
-          {PA}
-      </div>
-      
-    </>
-  );
+    if (loading === true) {
+        GetArray()
+        toggleLoading(loading => !loading);
+    }
+
+    return (
+        <>
+            <div className="navbar fixed-top navbar-light bgw justify-content-center abz p-0">
+                <a className=" nav-item nav-link w-100 justify-content-center" href="/">
+                    <h4 className="text-dark text-center">Alex</h4>
+                </a>
+            </div>
+
+            <div className="photogrid">
+                {PA}
+            </div>
+
+        </>
+    );
 }
 
 /*

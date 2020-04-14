@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import cut from "../assets/svg/cut.svg";
-import mcut from "../assets/svg/mobileCut.svg";
+import cut from "../../assets/svg/cut.svg";
+import mcut from "../../assets/svg/mobileCut.svg";
 
 /* import assets */
-import github from "../assets/svg/gh.svg";
-import linkedin from "../assets/svg/li.svg";
-import email from "../assets/svg/pa.svg";
-import cam from '../assets/svg/ca.svg'
+import github from "../../assets/svg/gh.svg";
+import linkedin from "../../assets/svg/li.svg";
+import email from "../../assets/svg/pa.svg";
+import cam from '../../assets/svg/ca.svg'
 
 export default function Home() {
   const initState = window.navigator.language.includes("en") ? 1 : 0;
