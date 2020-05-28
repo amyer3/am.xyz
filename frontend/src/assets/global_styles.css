@@ -23,26 +23,22 @@
   background-position: center;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
   border-radius: 10px !important;
+  position: relative;
 }
 
 .photocard:hover > .geo{
     top: 92%;
 }
 
-@keyframes slideUp{
-    from {background-color: green;}
-    to {background-color: hotpink;}
-}
-
 .geo {
-  position: relative;
+  position: absolute;
   z-index: 1000;
-  background: green;
+  background: lightgray;
   height: 1.3rem;
   top: revert;
   width: 10rem;
   float: right;
-  left: -5%;
+  left: 50%;
   top: 105%;
   border-radius: 3rem;
   transition: all .5s ease-in-out;
@@ -79,6 +75,25 @@
   z-index: 2;
   right: 0;
 }
+.d-none{
+    display: none;
+}
+.photo{
+    width: 100%;
+    height: 100%;
+}
+.loader{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.loading-spinner{
+    display: flex;
+    height: 100%;
+    margin: auto;
+}
+
 .font-resp{font-size: 5rem !important;}
 @media only screen and (max-width: 767px) {
     .font-resp{font-size: 5.5vh !important;}

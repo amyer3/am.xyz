@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(logger('dev'))
+app.use(logger('combined'))
 
 /**
  * app uses /api/prefix then routes to images to find specific resource requested

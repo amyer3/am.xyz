@@ -11,22 +11,20 @@ import PhotoBox from '../../components/PhotoBox'
 //   return json.message;
 // }
 
-//{"success": T/F, "count": N, list:[{/"geo": location of phoot/, "loc": complete url to photo}]}
+//{"success": T/F, "count": N, list:[{/"geo": location of photo/, "loc": complete url to photo}]}
 
-const URL = 'https://www.am.xyz/api/i/list'
-const TESTURL = 'http://localhost:3001/api/i/list'
+var photoURL = process.env.ENV_STATUS === "TEST" ? 'http://localhost:3001/api/i/list' : 'https://www.am.xyz/api/i/list'
 export default function PhotoDisplay(props) {
     const [loading, toggleLoading] = React.useState(true);
     const [PA, updatePA] = React.useState([]);
 
     function GetArray() {
-        fetch(URL)
+        fetch(photoURL)
             .then(resp => resp.json())
-            .then(json => json.list.forEach(async function (v) {
+            .then(json => json.list.forEach(async function (v, index) {
                 var location = await v.loc
-                var photo = <PhotoBox photoSRC={location} />
+                var photo = <PhotoBox photoSRC={location} key={index}/>
                 updatePA(PA => [...PA, photo])
-                console.log(v.loc)
             }
         ))
     }
