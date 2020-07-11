@@ -11,20 +11,13 @@ const fs = require('fs');
  * @todo add in some type of validation
  */
 
-const dir = './public/photos';
+const PIXEL = 'R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAI=';
 
-router.get('/list', (req, res) => {
-    fs.readdir(dir, (err, files) => {
-      console.log(files)
-      var fl = files.map(l => ({'loc': 'http://www.am.xyz/photos/'+l}))
-        res.status(200)
-        .json({
-          success: true, 
-          count: files.length,
-          list: fl
-        })
-      });
-    
+router.get('/px', (req, res) => {
+    const data = 0
+    console.log(req)
+    res.status(200)
+        .end(PIXEL)
 })
 
 module.exports = router
