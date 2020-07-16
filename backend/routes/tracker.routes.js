@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const aws = require('aws-sdk')
+const db = require('../database/connections/tracker-memory.js')
 const fs = require('fs');
 
 /**
@@ -12,10 +12,12 @@ const fs = require('fs');
  */
 
 const PIXEL = 'R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAI=';
+const log_path = new db
 
 router.get('/px', (req, res) => {
+    
     const data = 0
-    console.log(req)
+    //console.log(req)
     res.status(200)
         .end(PIXEL)
 })

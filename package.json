@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"cd backend && node index.js\" \"cd frontend && npm start\"", 
-    "push-remotes": "concurrently \"git push origin\" \"git push gitlab\""
+    "push": "concurrently \"git push origin\" \"git push gitlab\""
   },
   "repository": {
     "type": "git",
