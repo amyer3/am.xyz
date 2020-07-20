@@ -1,8 +1,9 @@
-var db = require("sqlite3").verbose();
+var db = require("../connections/connect-to-db")
 var fs = require('fs')
+const ENUMS = require('../utils/ENUMS')
 
 const User_DB = function () {
-    this.connection = this.connect()
+    this.connection = this.connect(ENUMS.DB_PATH, ENUMS.USER_DB)
     this.connection.run(`CREATE TABLE IF NOT EXISTS users (
         email STRING NOT NULL UNIQUE,
         first_name STRING NOT NULL, 

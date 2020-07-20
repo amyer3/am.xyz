@@ -9,6 +9,11 @@ const logs = require("./routes/logs.routes")
 const images = require("./routes/photos.routes")
 const data = require('./routes/data.routes')
 const tracker = require('./routes/tracker.routes')
+const ENUMS = require('./database/utils/ENUMS')
+
+const database = require('./database/connections/connect-to-db')
+var conn = database.prototype.connect(ENUMS.DB_PATH, ENUMS.USER_DB)
+console.log(conn)
 
 const API_PORT = 3001;
 const app = express();
