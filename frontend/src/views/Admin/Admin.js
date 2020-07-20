@@ -7,7 +7,11 @@ import Admin_Views from '../../routes/admin.routes'
 
 export default function Admin(props) {
     
-
+    const views = Admin_Views.map((v, i) => {
+        return (
+            <Route path={v.layout+v.path}/>
+        )
+})
 
 
     return (

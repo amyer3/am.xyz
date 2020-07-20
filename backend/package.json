@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "sudo sh ./scripts/startup.sh"
+    
   },
   "author": "",
   "license": "ISC",
@@ -14,11 +15,13 @@
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "bookshelf": "^1.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "ghost-cli": "^1.14.1",
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.2",
     "morgan": "^1.9.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",

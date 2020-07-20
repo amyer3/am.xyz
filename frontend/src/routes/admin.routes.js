@@ -14,13 +14,14 @@ export default admin_routes = [
         layout: "/admin",
         component: admin_view.WritePost,
         sub_views: [
-            {
-                name: "Compose",
-                path: "/compose",
-                layout: "/admin",
-                component: {}
-            }
+            
         ]
+    },
+    {
+        name: "Compose",
+        path: "/compose",
+        layout: "/admin",
+        component: {}
     },
     {
         name: "Photos",
