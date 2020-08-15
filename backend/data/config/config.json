@@ -1,0 +1,7 @@
+{
+    "config": {
+        "postgres_connection": {
+            "connection_string": ""
+        }
+    }
+}

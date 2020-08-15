@@ -1,5 +1,6 @@
 import React from "react";
-import PhotoBox from '../../components/PhotoBox'
+import PhotoBox from '../../components/photo-box/PhotoBox'
+import axios from 'axios'
 
 // //Use this to pull all photos from a folder, and make an array from them
 // function importAll(r) {return r.keys().map(r);}
@@ -15,23 +16,24 @@ import PhotoBox from '../../components/PhotoBox'
 
 var photoURL = process.env.ENV_STATUS === "TEST" ? 'http://localhost:3001/api/i/list' : 'https://www.am.xyz/api/i/list'
 export default function PhotoDisplay(props) {
-    const [loading, toggleLoading] = React.useState(true);
-    const [PA, updatePA] = React.useState([]);
+    var loading_metrics = []
 
-    function GetArray() {
-        fetch(photoURL)
-            .then(resp => resp.json())
-            .then(json => json.list.forEach(async function (v, index) {
-                var location = await v.loc
-                var photo = <PhotoBox photoSRC={location} key={index}/>
-                updatePA(PA => [...PA, photo])
-            }
-        ))
-    }
+    function update_loadtimes(time, metric){}
 
-    if (loading === true) {
-        GetArray()
-        toggleLoading(loading => !loading);
+    var PhotoArray = async () => {
+        try {
+            var {data} = await axios.get(photoURL)
+            const res = await Promise.resolve(data)
+            console.log(res)
+            var arr =  res.list.map((v, i) => {
+                    console.log(v)
+                return  <PhotoBox photoSRC={v.loc} key={i} />
+            })
+            return arr
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
 
     return (
@@ -43,7 +45,7 @@ export default function PhotoDisplay(props) {
             </div>
 
             <div className="photogrid">
-                {PA}
+                {PhotoArray()}
             </div>
 
         </>

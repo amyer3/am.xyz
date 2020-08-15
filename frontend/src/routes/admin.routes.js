@@ -1,18 +1,19 @@
 import admin_view from '../components/admin-views'
+import Dashboard from '../components/admin-views/Dashboard'
 
-export default admin_routes = [
+const admin_routes = [
     {
         name: "Dashboard",
-        path: "/dash",
+        path: "/dashboard",
         layout: "/admin",
-        component: {}
+        component: Dashboard
     },
     {
         //should return a list of all posts, with status
         name: "Posts",
         path: "/posts",
         layout: "/admin",
-        component: admin_view.WritePost,
+        component: {},
         sub_views: [
             
         ]
@@ -35,6 +36,12 @@ export default admin_routes = [
         layout: "/admin",
         component: {}
     },
+    {
+        name: "Settings",
+        path: "/settings",
+        layout: "/admin",
+        component: {}
+    },
 ]
 
 /**
@@ -48,3 +55,4 @@ export default admin_routes = [
  }
 
  */
+export default admin_routes
