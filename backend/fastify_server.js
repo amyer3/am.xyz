@@ -2,6 +2,7 @@ const fastify = require('fastify')({ logger: true })
 const routes = require("./routes/v2")
 const test_tracker = require('./routes/_test/test.route')
 
+
 // var endpoints =routes.tracker_routes.forEach((v, i) => {
 //     fastify.route(v)
 // })

@@ -9,8 +9,9 @@ export default function Admin(props) {
     document.title= 'Admin | am.xyz'
     
     const admin_views = Admin_View_Routes.map((v, i) => {
+        let Component = v.component || <div></div>
         return (
-            <Route path={v.layout + v.path} component={v.component}/>
+            <Route path={v.layout + v.path} component={props => <Component {...props}/>} key={5000 + i}/>
         )
 })
 

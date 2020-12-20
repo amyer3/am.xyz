@@ -1,5 +1,6 @@
 import admin_view from '../components/admin-views'
 import Dashboard from '../components/admin-views/Dashboard'
+import Compose from '../components/admin-views/Compose'
 
 const admin_routes = [
     {
@@ -22,7 +23,7 @@ const admin_routes = [
         name: "Compose",
         path: "/compose",
         layout: "/admin",
-        component: {}
+        component: Compose
     },
     {
         name: "Photos",

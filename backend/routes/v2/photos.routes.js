@@ -29,11 +29,19 @@ const get_photos_list = function (fastify, opts, done) {
                         list: { type: 'array' }
                     }
                 }
+            }, 500: {
+                type: 'object',
+                properties: {
+                    success: {type:"boolean"}
+                }
             }
         },
         handler: async function (request, reply, done) {
             //const fl = await fs.readdir(DIR, (err, files) => {})
-            const fileList = fs.readdirSync(DIR)
+            var fileList = fs.readdirSync(DIR)
+                .map((v, i) => { 
+                return 'http://www.am.xyz/photos/'+v
+            })
             console.log(fileList)
             reply.send({
                 success: true,

@@ -6,7 +6,14 @@ const send_tracker_pixel = function (fastify, opts, done) {
     fastify.route({
         method: 'GET',
         url: '/t/px',
+        response: {
+            200: {
+                type: "string"
+            }
+        }
+        ,
         handler: function (request, reply) {
+            console.log(request)
             reply.send(PIXEL)
         }
     })

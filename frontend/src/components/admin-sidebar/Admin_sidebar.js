@@ -18,6 +18,7 @@ export default function AdminSidebar(props){
                     <Route
                         to={v.layout + v.path}
                         className="sidebar-admin-item"
+                        key={1000 + i}
                     />
                 )
             })}
