@@ -34,8 +34,11 @@
     "development": []
   },
   "devDependencies": {
+    "autoprefixer": "^10.1.0",
     "cross-env": "^5.2.0",
     "husky": "^2.3.0",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "postcss": "^8.2.1",
+    "tailwindcss": "^2.0.2"
   }
 }
