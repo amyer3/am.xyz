@@ -1,13 +1,7 @@
-.border-10 {
-  border-radius: 10px !important;
-  border: 3px solid white !important;
-  
-}
+@tailwind base;
+@tailwind components;
+
 .abz {font-family: "ABeeZee", Serif !important;}
-.point {
-  cursor: pointer;
-  display: flex;
-}
 .size-limit {
   max-width: 400px;
   max-height: 400px;
@@ -53,7 +47,6 @@
   text-decoration: none !important;
   background-color: transparent !important;
 }
-.bgw {background-color: white !important;}
 .photogrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -75,13 +68,6 @@
   z-index: 2;
   right: 0;
 }
-.d-none{
-    display: none;
-}
-.photo{
-    width: 100%;
-    height: 100%;
-}
 .loader{
     background-color: white;
     width: 100%;
@@ -94,9 +80,7 @@
     margin: auto;
 }
 
-.font-resp{font-size: 5rem !important;}
 @media only screen and (max-width: 767px) {
-    .font-resp{font-size: 5.5vh !important;}
     .photogrid{
         display: grid;
         grid-template-columns: 1fr;

@@ -38,7 +38,7 @@ export default function PhotoDisplay(props) {
 
     return (
         <>
-            <div className="navbar fixed-top navbar-light bgw justify-content-center abz p-0">
+            <div className="navbar fixed-top navbar-light bg-white justify-content-center abz p-0">
                 <a className=" nav-item nav-link w-100 justify-content-center" href="/">
                     <h4 className="text-dark text-center">Alex</h4>
                 </a>

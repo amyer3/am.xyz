@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter } from 'react-router-dom'
-import './assets/global_styles.css'
+import './style/site.css'
+import './style/tailwind.css'
 
 const Home = React.lazy(() => import('./views/Home/Home'))
 const Photo = React.lazy(() => import('./views/Photography/Photography'))
