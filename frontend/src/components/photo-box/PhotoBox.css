@@ -1,8 +1,0 @@
-.loader{
-    display: inline;
-    transition: all 1s;
-}
-
-.loader.exit{
-    display: none;
-}
