@@ -142,3 +142,15 @@ background: -webkit-linear-gradient(to bottom, hsla(191, 60%, 89%, 1) 0%, hsla(5
 
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D3EEF4", endColorstr="#F1EEC8", GradientType=1 );
 }
+span-gradient{
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(
+90deg
+,#02bdd5,#2467df);
+    background-size: 100%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}

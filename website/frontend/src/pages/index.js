@@ -11,7 +11,7 @@ import CTA_Button from '../components/CTA_button'
 import photo from '../assets/images/IMG_0711.jpg'
 import Boarding_Pass from "../components/Boarding_Pass";
 
-function play_on_visible(e, class_to_add) {
+function play_on_visible(e, class_to_add, top_offset) {
     if (typeof document != `undefined`) {
         //check if at least 1/2 of element is visible
         // apply classs_to_add to e.target
@@ -30,9 +30,9 @@ let placeholder_data = {
         },
         {
             id: "blog",
-            header: "I write things, occasionally.",
+            header: "I write things, sometimes.",
             icon: "",
-            content: "I like to write about where I've been, what I've eaten, and air my petty greviances in written form.",
+            content: "Where I've been & what I've eaten.",
             link: "",
             button_content: "I wanna see"
         },

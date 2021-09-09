@@ -4,16 +4,6 @@ module.exports = {
     description: ``,
     author: `@ajmyer3`,
     },
-    page_transform: [
-        {
-            path: "about",
-            new_path: "index",
-        },
-        {
-            path: "index",
-            delete: true
-        },
-    ],
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
