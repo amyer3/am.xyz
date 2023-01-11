@@ -24,7 +24,7 @@
     "ghost-cli": "^1.14.1",
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.21.2",
+    "knex": "^2.4.0",
     "morgan": "^1.9.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
